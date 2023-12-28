@@ -12,8 +12,7 @@ using Cursor = UnityEngine.Cursor;
 
 namespace Third_Party_Assets.Scripts
 {
-
-    public class InspectItem : MonoBehaviour
+    public class InspectItemManager : MonoBehaviour
     {
         [SerializeField] private InspectItemData inspectItemData;
         

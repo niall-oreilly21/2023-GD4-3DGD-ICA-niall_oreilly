@@ -4,7 +4,7 @@ using UnityEngine;
 namespace My_Assets.Scripts.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "MultiLingualObjectSelectionResponse", menuName = "DkIT/Scriptable Objects/Other/Responses/MultiLingualObject")]
-    public class MultiLingualObjectSelectionResponse : ScriptableObject, ISelectionResponse
+    public class MultiLingualDataSelectionResponse : ScriptableObject, ISelectionResponse
     {
         public void OnDeselect(Transform selection)
             {

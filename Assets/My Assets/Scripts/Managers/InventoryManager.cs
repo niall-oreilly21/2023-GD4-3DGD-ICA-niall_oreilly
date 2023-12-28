@@ -8,7 +8,7 @@ namespace My_Assets.Scripts.Managers
         [SerializeField]
         private Inventory inventory;
 
-        public void HandleConsumablePickup(MultiLingualObject item)
+        public void HandleConsumablePickup(MultiLingualData item)
         {
             if (inventory.Contents.ContainsKey(item))
             {

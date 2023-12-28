@@ -3,13 +3,14 @@ using GD;
 using My_Assets.Scripts.ScriptableObjects;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace My_Assets.Scripts
 {
     public class ItemBehaviour : MonoBehaviour
     {
-        [SerializeField]
-        private MultiLingualObject multiLingualObject;
+        [FormerlySerializedAs("multiLingualObject")] [SerializeField]
+        private MultiLingualData multiLingualData;
         private AudioSource audioSource;
 
         private void Start()
@@ -21,7 +22,7 @@ namespace My_Assets.Scripts
         {
             if (recordingToPlay.Equals(RecordedSoundType.ENGLISH))
             {
-                audioSource.clip = multiLingualObject.EnglishLanguageObject.TextToSpeech;
+                audioSource.clip = multiLingualData.EnglishLanguageData.TextToSpeech;
                 audioSource.Play();
             }
         }

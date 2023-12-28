@@ -4,7 +4,7 @@ using UnityEngine;
 namespace My_Assets.Scripts.ScriptableObjects
 {
     [System.Serializable]
-    public class LanguageObject
+    public class LanguageData
     {
         [Tooltip("An AudioSource for the speech of the text")]
         [Searchable]
