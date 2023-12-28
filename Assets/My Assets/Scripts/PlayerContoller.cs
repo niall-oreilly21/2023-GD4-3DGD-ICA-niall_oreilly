@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using GD.Controllers;
 using UnityEngine;
 
-public class PlayerContoller : MonoBehaviour
+public class PlayerContoller : CharacterNavigationController
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+
+        private static readonly string IS_RUNNING = "isRunning";
         
+        protected override void SetAnimationWhenGoingToDestination()
+    {
+        animator.SetBool(IS_RUNNING, true);
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void SetAnimationWhenReachedDestination()
     {
-        
+        animator.SetBool(IS_RUNNING, false);
     }
 }
