@@ -4,17 +4,29 @@ using UnityEngine;
 namespace My_Assets.Scripts.ScriptableObjects
 {
     [System.Serializable]
-    public struct LanguageObject
+    public class LanguageObject
     {
-        [Tooltip("An Audio Clip for the speech of the text")]
+        [Tooltip("An AudioSource for the speech of the text")]
         [Searchable]
         public AudioClip textToSpeech;
-        
+
         [SerializeField]
-        [Tooltip("The text of the the object in a language")]
+        [Tooltip("The text of the object in a language")]
         private string languageText;
-        
+
         public AudioClip TextToSpeech => textToSpeech;
         public string LanguageText => languageText;
+
+        // public void PlayTextAudio()
+        // {
+        //     if (textToSpeech != null)
+        //     {
+        //         textToSpeech.Play();
+        //     }
+        //     else
+        //     {
+        //         Debug.LogWarning("No AudioSource assigned to the TextToSpeech field.");
+        //     }
+        // }
     }
 }

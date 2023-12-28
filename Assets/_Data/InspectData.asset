@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c33ab41bc5e4c5d9420b0a5659f0a37, type: 3}
-  m_Name: ItemDataGameEvent
+  m_Script: {fileID: 11500000, guid: 32354545eebb40d68cd948396d66463f, type: 3}
+  m_Name: InspectData
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,8 +21,13 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  UniqueId: 1089f099-6761-4e81-8ccc-f0c6aa3d3afb
-  LastUpdated: 28/12/23 19:31:05
+  UniqueId: f4a373fb-5371-466a-99ba-2aff59fdd85a
+  LastUpdated: 28/12/23 23:23:16
   LastUpdatedBy: 
   Notes: 
   Description: 
+  Type: 0
+  offset: {fileID: 0}
+  interactingCanvas: {fileID: 0}
+  examineCanvas: {fileID: 0}
+  itemLanguageToPlay: {fileID: 11400000, guid: a4be894068f7d5541999970c0e791407, type: 2}
