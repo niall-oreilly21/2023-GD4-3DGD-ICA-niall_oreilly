@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
@@ -15,22 +16,22 @@ namespace Third_Party_Assets.Scripts
     public class InspectItemManager : MonoBehaviour
     {
         [SerializeField] private InspectItemData inspectItemData;
-        
-        //The last recorded mouse position during examination.
-        private Vector3 lastMousePosition;
 
-        //The currently examined object during examination.
-        private Transform examinedObject;
+        [SerializeField]
+        [Tooltip("The GameObject offset used during examination.")]
+        private GameObject offset;
 
-        //Original positions of interactable objects
-        private Dictionary<Transform, Vector3> originalPositions = new Dictionary<Transform, Vector3>();
+        [SerializeField]
+        [Tooltip("The Canvas used for examination UI.")]
+        private Canvas interactingCanvas;
 
-        //Original rotations of interactable objects
-        private Dictionary<Transform, Quaternion> originalRotations = new Dictionary<Transform, Quaternion>();
+        [SerializeField]
+        [Tooltip("The Canvas used for examination UI (alternative reference).")]
+        private Canvas examineCanvas;
 
-        void Start()
+        private void Start()
         {
-            //_canva.enabled = false;
+            inspectItemData.IsExamining = false;
         }
 
         void Update()
@@ -47,15 +48,15 @@ namespace Third_Party_Assets.Scripts
                 {
                     if (hit.collider.CompareTag("Pickable"))
                     {
+                        inspectItemData.InspectItemBehaviour = hit.transform.gameObject.GetComponent<ItemBehaviour>();
                         inspectItemData.ToggleExamination();
 
                         // Store the currently examined object and its original position and rotation
                         if (inspectItemData.IsExamining)
                         {
-                        
-                            examinedObject = hit.transform;
-                            originalPositions[examinedObject] = examinedObject.position;
-                            originalRotations[examinedObject] = examinedObject.rotation;
+                            inspectItemData.ExaminedObject = hit.transform;
+                            inspectItemData.OriginalPositions[inspectItemData.ExaminedObject] = inspectItemData.ExaminedObject.position;
+                            inspectItemData.OriginalRotations[inspectItemData.ExaminedObject] = inspectItemData.ExaminedObject.rotation;
                         }
                     }
                 }
@@ -63,19 +64,19 @@ namespace Third_Party_Assets.Scripts
 
             //It then checks if the player is close to an interactable object using the CheckUserClose() method.
             //If the player is close, it calls either Examine() or NonExamine() and enables or disables the canvas component accordingly.
-            
                 if (inspectItemData.IsExamining)
                 {
-                    inspectItemData.InteractingCanvas.enabled = false;
+                    interactingCanvas.enabled = false;
                     Examine(); 
-                    StartExamination();
-                    inspectItemData.ExamineCanvas.enabled = true;
+                    //StartExamination();
+                    examineCanvas.enabled = true;
                 }
                 else
                 {
-                    inspectItemData.InteractingCanvas.enabled = true;
-                    NonExamine(); StopExamination();
-                    inspectItemData.ExamineCanvas.enabled = false;
+                    interactingCanvas.enabled = true;
+                    NonExamine(); 
+                    //StopExamination();
+                    examineCanvas.enabled = false;
                 }
             //}
             //else _canva.enabled = false;
@@ -87,7 +88,7 @@ namespace Third_Party_Assets.Scripts
 
         void StartExamination()
         {
-            lastMousePosition = Input.mousePosition;
+            inspectItemData.LastMousePosition = Input.mousePosition;
 
             //Cursor.lockState = CursorLockMode.None;
             //Cursor.visible = true;
@@ -97,12 +98,17 @@ namespace Third_Party_Assets.Scripts
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                inspectItemData.ItemLanguageToPlay?.Raise(RecordedSoundType.ENGLISH);
+                inspectItemData.InspectItemBehaviour.PlaySound(RecordedSoundType.ENGLISH);
             }
             
             else if (Input.GetKeyDown(KeyCode.S))
             {
-                inspectItemData.ItemLanguageToPlay?.Raise(RecordedSoundType.FOREIGN_LANGUAGE);
+                inspectItemData.InspectItemBehaviour.PlaySound(RecordedSoundType.FOREIGN_LANGUAGE);
+            }
+            
+            else if (Input.GetKeyDown(KeyCode.V))
+            {
+                inspectItemData.InspectItemBehaviour.AddToInventory();
             }
         }
 
@@ -121,15 +127,15 @@ namespace Third_Party_Assets.Scripts
 
         void Examine()
         {
-            if (examinedObject != null)
+            if (inspectItemData.ExaminedObject != null)
             {
                 CheckPlayerInput();
-                examinedObject.position = Vector3.Lerp(examinedObject.position, inspectItemData.Offset.transform.position, 0.2f);
-                Vector3 deltaMouse = Input.mousePosition - lastMousePosition;
+                inspectItemData.ExaminedObject.position = Vector3.Lerp(inspectItemData.ExaminedObject.position, offset.transform.position, 0.2f);
+                Vector3 deltaMouse = Input.mousePosition - inspectItemData.LastMousePosition;
                 float rotationSpeed = 1.0f;
-                examinedObject.Rotate(deltaMouse.x * rotationSpeed * Vector3.up, Space.World);
-                examinedObject.Rotate(deltaMouse.y * rotationSpeed * Vector3.left, Space.World);
-                lastMousePosition = Input.mousePosition;
+                inspectItemData.ExaminedObject.Rotate(deltaMouse.x * rotationSpeed * Vector3.up, Space.World);
+                inspectItemData.ExaminedObject.Rotate(deltaMouse.y * rotationSpeed * Vector3.left, Space.World);
+                inspectItemData.LastMousePosition = Input.mousePosition;
             }
         }
 
@@ -138,20 +144,18 @@ namespace Third_Party_Assets.Scripts
 
         void NonExamine()
         {
-            if (examinedObject != null)
+            if (inspectItemData.ExaminedObject != null)
             {
                 // Reset the position and rotation of the examined object to its original values
-                if (originalPositions.ContainsKey(examinedObject))
+                if (inspectItemData.OriginalPositions.ContainsKey(inspectItemData.ExaminedObject))
                 {
-                    examinedObject.position = Vector3.Lerp(examinedObject.position, originalPositions[examinedObject], 0.2f);
+                    inspectItemData.ExaminedObject.position = Vector3.Lerp(inspectItemData.ExaminedObject.position, inspectItemData.OriginalPositions[inspectItemData.ExaminedObject], 0.2f);
                 }
-                if (originalRotations.ContainsKey(examinedObject))
+                if (inspectItemData.OriginalRotations.ContainsKey(inspectItemData.ExaminedObject))
                 {
-                    examinedObject.rotation = Quaternion.Slerp(examinedObject.rotation, originalRotations[examinedObject], 0.2f);
+                    inspectItemData.ExaminedObject.rotation = Quaternion.Slerp(inspectItemData.ExaminedObject.rotation, inspectItemData.OriginalRotations[inspectItemData.ExaminedObject], 0.2f);
                 }
             }
         }
-        // This method calculates the distance between the player(targetObject) and 
-       // an object called tableObject.If the distance is less than 2 units, it returns true, indicating that the player is close to the object.
     }
 }

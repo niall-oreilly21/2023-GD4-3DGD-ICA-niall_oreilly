@@ -8,33 +8,45 @@ namespace My_Assets.Scripts.ScriptableObjects
     [CreateAssetMenu(fileName = "GameLevel", menuName = "DkIT/Scriptable Objects/Game/InspectItem", order = 1)]
     public class InspectItemData : BaseObjectData
     {
-        [SerializeField]
-        [Tooltip("The GameObject offset used during examination.")]
-        private GameObject offset;
+        private bool isExamining = false;
+        
+        //The last recorded mouse position during examination.
+        private Vector3 lastMousePosition;
 
-        [SerializeField]
-        [Searchable]
-        [Tooltip("The Canvas used for examination UI.")]
-        private Canvas interactingCanvas;
+        //The currently examined object during examination.
+        private Transform examinedObject;
 
-        [SerializeField]
-        [Searchable]
-        [Tooltip("The Canvas used for examination UI (alternative reference).")]
-        private Canvas examineCanvas;
+        //Original positions of interactable objects
+        private Dictionary<Transform, Vector3> originalPositions = new Dictionary<Transform, Vector3>();
 
-        [SerializeField]
-        private EnumGameEvent itemLanguageToPlay;
+        //Original rotations of interactable objects
+        private Dictionary<Transform, Quaternion> originalRotations = new Dictionary<Transform, Quaternion>();
+        private ItemBehaviour inspectItemBehaviour;
         
         #region Properties
-        private bool isExamining = false;
-        public GameObject Offset => offset;
-        public Canvas InteractingCanvas => interactingCanvas;
-        public Canvas ExamineCanvas => examineCanvas;
-        public bool IsExamining => isExamining;
-        
-        public EnumGameEvent ItemLanguageToPlay => itemLanguageToPlay;
+        public bool IsExamining
+        {
+            get => isExamining;
+            set => isExamining = value;
+        }
+        public Vector3 LastMousePosition
+        {
+            get => lastMousePosition;
+            set => lastMousePosition = value;
+        }
+        public Transform ExaminedObject
+        {
+            get => examinedObject;
+            set => examinedObject = value;
+        }
+        public Dictionary<Transform, Vector3> OriginalPositions => originalPositions;
+        public Dictionary<Transform, Quaternion> OriginalRotations => originalRotations;
+        public ItemBehaviour InspectItemBehaviour
+        {
+            get => inspectItemBehaviour;
+            set => inspectItemBehaviour = value;
+        }
         #endregion
-        
         public void ToggleExamination()
         {
             isExamining = !isExamining;

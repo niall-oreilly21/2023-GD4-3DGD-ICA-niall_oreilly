@@ -22,12 +22,8 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: f4a373fb-5371-466a-99ba-2aff59fdd85a
-  LastUpdated: 28/12/23 23:23:16
+  LastUpdated: 29/12/23 05:06:07
   LastUpdatedBy: 
   Notes: 
   Description: 
   Type: 0
-  offset: {fileID: 0}
-  interactingCanvas: {fileID: 0}
-  examineCanvas: {fileID: 0}
-  itemLanguageToPlay: {fileID: 11400000, guid: a4be894068f7d5541999970c0e791407, type: 2}

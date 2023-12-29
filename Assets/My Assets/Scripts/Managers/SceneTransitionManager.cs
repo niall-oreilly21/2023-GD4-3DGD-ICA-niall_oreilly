@@ -1,3 +1,5 @@
+using UnityEngine.SceneManagement;
+
 namespace GD
 {
     /// <summary>
@@ -5,5 +7,9 @@ namespace GD
     /// </summary>
     public class SceneTransitionManager : Singleton<SceneTransitionManager>
     {
+        public void LoadGame()
+        {
+            SceneManager.LoadScene("CA_outline");
+        }
     }
 }
