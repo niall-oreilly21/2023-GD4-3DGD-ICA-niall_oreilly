@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 891baf0ba4c569646a3b1841d4cb922d, type: 3}
-  m_Name: AddToInventory
+  m_Script: {fileID: 11500000, guid: a9280aa018c54a6ca5435e4f28723754, type: 3}
+  m_Name: ExamineGameObject
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,8 +21,8 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  UniqueId: feb9c019-3b83-4e2d-9162-f5171df684b5
-  LastUpdated: 29/12/23 02:23:37
+  UniqueId: 812f36db-6e2f-4a2d-870d-4d71bfa34e40
+  LastUpdated: 29/12/23 13:45:11
   LastUpdatedBy: 
   Notes: 
   Description: 

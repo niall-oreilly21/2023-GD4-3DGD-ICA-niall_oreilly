@@ -48,7 +48,6 @@ public class AdvancedSelectionManager : MonoBehaviour
         //set selected
         if (currentSelection != null)
         {
-            Debug.Log("Hello");
             foreach (ISelectionResponse response in selectionResponses)
                 response.OnSelect(currentSelection);
         }
