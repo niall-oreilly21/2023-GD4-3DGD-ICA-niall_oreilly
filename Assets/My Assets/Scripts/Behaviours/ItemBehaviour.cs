@@ -9,9 +9,12 @@ namespace My_Assets.Scripts
 {
     public class ItemBehaviour : MonoBehaviour
     {
-        [FormerlySerializedAs("multiLingualObject")] [SerializeField]
+        [SerializeField]
         private MultiLingualData multiLingualData;
         private AudioSource audioSource;
+        
+        [SerializeField]
+        private MultiLanguageGameEvent addMultiLanguageGameEvent;
 
         private void Start()
         {
@@ -25,6 +28,12 @@ namespace My_Assets.Scripts
                 audioSource.clip = multiLingualData.EnglishLanguageData.TextToSpeech;
                 audioSource.Play();
             }
+        }
+
+        public void AddToInventory()
+        {
+            addMultiLanguageGameEvent?.Raise(multiLingualData);
+            Destroy(gameObject);
         }
     }
 }

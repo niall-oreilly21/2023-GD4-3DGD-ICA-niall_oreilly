@@ -8,6 +8,6 @@ namespace My_Assets.Scripts.ScriptableObjects
             menuName = "DkIT/Scriptable Objects/Game/Inventory")]
         public class Inventory : SerializedScriptableObject
         {
-            public Dictionary<MultiLingualData, int> Contents;
+            public Dictionary<string, MultiLingualData> Contents;
         }
 }

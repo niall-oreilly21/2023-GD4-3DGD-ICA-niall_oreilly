@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using My_Assets.Scripts.ScriptableObjects;
 using UnityEngine;
 
@@ -8,18 +9,26 @@ namespace My_Assets.Scripts.Managers
         [SerializeField]
         private Inventory inventory;
 
+        public Transform ItemContent;
+        public GameObject InventoryItem;
+
         public void HandleConsumablePickup(MultiLingualData item)
         {
-            if (inventory.Contents.ContainsKey(item))
+            if (!inventory.Contents.ContainsKey(item.name))
             {
-                int count = inventory.Contents[item];
-                count++; //since int is value type this is a copy so we need to rewrite in
-                inventory.Contents[item] = count;
-                // inventory.Contents.Add(item, count);
+                inventory.Contents.Add(item.name, item);
             }
-            else
+        }
+
+        public void ListItems()
+        {
+            foreach (Transform item in ItemContent)
             {
-                inventory.Contents.Add(item, 1);
+                Destroy(item.gameObject);
+            }
+            foreach (KeyValuePair<string, MultiLingualData> item in inventory.Contents)
+            {
+                GameObject obj = Instantiate(InventoryItem, ItemContent);
             }
         }
     }
