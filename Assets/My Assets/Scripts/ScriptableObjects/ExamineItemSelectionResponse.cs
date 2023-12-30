@@ -15,7 +15,6 @@ namespace My_Assets.Scripts.ScriptableObjects
 
             public void OnSelect(Transform selection)
             {
-                Debug.Log("HERER");
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     examineObject.Raise(selection.gameObject);
