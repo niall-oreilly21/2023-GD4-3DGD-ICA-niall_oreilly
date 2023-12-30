@@ -12,9 +12,11 @@ namespace My_Assets.Scripts
         [SerializeField]
         private MultiLingualData multiLingualData;
         private AudioSource audioSource;
-        
+
         [SerializeField]
         private MultiLanguageGameEvent addMultiLanguageGameEvent;
+        
+        public Vector3 StartPosition;
 
         private void Start()
         {

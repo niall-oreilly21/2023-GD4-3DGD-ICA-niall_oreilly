@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1477952d12f4af3b7e771b4c21d67ef, type: 3}
-  m_Name: Banana
+  m_Script: {fileID: 11500000, guid: 0c33ab41bc5e4c5d9420b0a5659f0a37, type: 3}
+  m_Name: RemoveMultiLingualGameEvent
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,18 +21,8 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  UniqueId: b12f78ea-950e-4737-ab83-adf274e06c69
-  LastUpdated: 30/12/23 18:05:51
+  UniqueId: a10ba331-5f64-4e82-9d38-6433f11ce8bb
+  LastUpdated: 29/12/23 02:12:35
   LastUpdatedBy: 
   Notes: 
   Description: 
-  Type: 0
-  englishLanguageData:
-    textToSpeech: {fileID: 8300000, guid: 5b7d1c74c6bc8c9469d6acc1a0e6008e, type: 3}
-    languageText: 
-  spanishLanguageData:
-    textToSpeech: {fileID: 0}
-    languageText: 
-  frenchLanguageData:
-    textToSpeech: {fileID: 0}
-    languageText: 

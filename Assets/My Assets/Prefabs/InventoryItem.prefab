@@ -120,7 +120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8333872949848463902}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 371235752601672752}
+        m_TargetAssemblyTypeName: InventoryItemController, Assembly-CSharp
+        m_MethodName: RemoveItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2735057426544359991
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +278,7 @@ GameObject:
   - component: {fileID: 2996802891594587911}
   - component: {fileID: 2716218157484309828}
   - component: {fileID: 8546332548131780127}
+  - component: {fileID: 371235752601672752}
   m_Layer: 5
   m_Name: InventoryItem
   m_TagString: Untagged
@@ -331,3 +344,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &371235752601672752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3054849747015841728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89444740a6e889c418b9bb2459d1e203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  removeItemFromInventory: {fileID: 11400000, guid: 795a6ceffcf29ae4985f74fc75cb6158, type: 2}
