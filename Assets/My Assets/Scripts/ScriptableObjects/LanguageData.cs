@@ -16,17 +16,5 @@ namespace My_Assets.Scripts.ScriptableObjects
 
         public AudioClip TextToSpeech => textToSpeech;
         public string LanguageText => languageText;
-
-        // public void PlayTextAudio()
-        // {
-        //     if (textToSpeech != null)
-        //     {
-        //         textToSpeech.Play();
-        //     }
-        //     else
-        //     {
-        //         Debug.LogWarning("No AudioSource assigned to the TextToSpeech field.");
-        //     }
-        // }
     }
 }

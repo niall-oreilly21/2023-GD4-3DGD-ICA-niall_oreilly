@@ -33,6 +33,10 @@ namespace My_Assets.Scripts.Managers
 
             // Take a subset of prefab names based on CountOfWordsToTest
             randomItemsToTest = availablePrefabNames.Take(2).ToList();
+
+            List<string> temp = new List<string>(){"Banana", "Apple","Banana", "Apple","Banana", "Apple","Banana", "Apple"};
+
+            MyUIManager.Instance.DisplayShoppingList(temp);
         }
 
         public void LoadPrefabs()
