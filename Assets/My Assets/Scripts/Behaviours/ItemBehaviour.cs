@@ -17,6 +17,8 @@ namespace My_Assets.Scripts
         private MultiLanguageGameEvent addMultiLanguageGameEvent;
         
         public Vector3 StartPosition;
+        
+        public MultiLingualData MultiLingualData => multiLingualData;
 
         private void Start()
         {

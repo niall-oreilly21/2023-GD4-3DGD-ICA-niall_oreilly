@@ -1,5 +1,6 @@
 using GD;
 using GD.Selection;
+using My_Assets.Scripts.Behaviours;
 using UnityEngine;
 
 namespace My_Assets.Scripts.ScriptableObjects
@@ -9,15 +10,33 @@ namespace My_Assets.Scripts.ScriptableObjects
     {
         [SerializeField]
         private GameObjectGameEvent examineObject;
+        
+        [SerializeField]
+        private GameObjectGameEvent checkInRange;
+
+        [SerializeField]
+        private BoolVariable isCollidingWithCurrentObject;
+
+        [SerializeField] 
+        private InspectItemData inspectItemData;
+        
             public void OnDeselect(Transform selection)
             {
+                if (!inspectItemData.IsExamining)
+                {
+                    isCollidingWithCurrentObject.Value = false;
+                }
             }
-
             public void OnSelect(Transform selection)
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                checkInRange.Raise(selection.gameObject);
+                
+                if (isCollidingWithCurrentObject.Value)
                 {
-                    examineObject.Raise(selection.gameObject);
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        examineObject.Raise(selection.gameObject);
+                    }
                 }
             }
     }

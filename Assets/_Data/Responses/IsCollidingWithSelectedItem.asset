@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b203cba963d09e440ab7393c47c72301, type: 3}
+  m_Name: IsCollidingWithSelectedItem
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  UniqueId: 0078a021-5027-451d-8b1a-db721de0efd3
+  LastUpdated: 30/12/23 22:33:19
+  LastUpdatedBy: 
+  Notes: 
+  Description: 
+  value: 0
+  OnSet:
+    m_PersistentCalls:
+      m_Calls: []
