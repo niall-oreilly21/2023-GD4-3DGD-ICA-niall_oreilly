@@ -12,7 +12,7 @@ namespace GD
     {
         public void LoadGame()
         {
-            SceneManager.LoadScene("CA_outline");
+            SceneManager.LoadScene("LevelScene");
         }
 
         public void EndGame()

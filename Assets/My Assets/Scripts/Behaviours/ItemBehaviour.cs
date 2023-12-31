@@ -13,9 +13,6 @@ namespace My_Assets.Scripts
         private MultiLingualData multiLingualData;
         private AudioSource audioSource;
 
-        [SerializeField]
-        private MultiLanguageGameEvent addMultiLanguageGameEvent;
-        
         public Vector3 StartPosition;
         
         public MultiLingualData MultiLingualData => multiLingualData;
@@ -34,9 +31,8 @@ namespace My_Assets.Scripts
             }
         }
 
-        public void AddToInventory()
+        public void DeleteItem()
         {
-            addMultiLanguageGameEvent?.Raise(multiLingualData);
             Destroy(gameObject);
         }
     }

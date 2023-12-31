@@ -10,15 +10,22 @@ namespace My_Assets.Scripts.Managers
         [SerializeField]
         private Inventory inventory;
 
-        private void OnDestroy()
+        [SerializeField] 
+        private LevelPreferencesData levelPreferencesData;
+
+        private bool isInventoryFull;
+
+        private void Start()
         {
+            isInventoryFull = false;
             inventory.Contents.Clear();
         }
+        
         public void AddItemToInventory(MultiLingualData item)
         {
-            if (!inventory.Contents.ContainsKey(item.name))
+            if (!isInventoryFull)
             {
-                inventory.Contents.Add(item.name, item);
+                inventory.Contents.TryAdd(item.name, item);
             }
         }
         public void RemoveItemFromInventory(MultiLingualData item)
@@ -29,6 +36,13 @@ namespace My_Assets.Scripts.Managers
             }
             MyGameManager.Instance.LoadPrefab(item.name);
         }
+
+        private void Update()
+        {
+            isInventoryFull = inventory.Contents.Count == levelPreferencesData.CountOfWordsToTest;
+            MyUIManager.Instance.DisplayInventoryFull(isInventoryFull);
+        }
+        
     }
 }
 

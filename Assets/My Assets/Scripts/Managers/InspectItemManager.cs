@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using GD;
 using My_Assets.Scripts;
+using My_Assets.Scripts.Managers;
 using My_Assets.Scripts.ScriptableObjects;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -13,7 +14,7 @@ using Cursor = UnityEngine.Cursor;
 
 namespace Third_Party_Assets.Scripts
 {
-    public class InspectItemBehaviour : MonoBehaviour
+    public class InspectItemManager : MonoBehaviour
     {
         [SerializeField] private InspectItemData inspectItemData;
 
@@ -29,6 +30,11 @@ namespace Third_Party_Assets.Scripts
         [Tooltip("The Canvas used for examination UI (alternative reference).")]
         private Canvas examineCanvas;
 
+        [SerializeField]
+        private MultiLanguageGameEvent addToInventoryGameEvent;
+            
+        private ItemBehaviour currentInspectItemBehaviour;
+
         private void Start()
         {
             inspectItemData.IsExamining = false;
@@ -36,7 +42,7 @@ namespace Third_Party_Assets.Scripts
 
         public void CheckExamining(GameObject hitGameObject)
         {
-            inspectItemData.InspectItemBehaviour = hitGameObject.GetComponent<ItemBehaviour>();
+            currentInspectItemBehaviour = hitGameObject.GetComponent<ItemBehaviour>();
             inspectItemData.ToggleExamination();
 
             // Store the currently examined object and its original position and rotation
@@ -91,13 +97,13 @@ namespace Third_Party_Assets.Scripts
             if (inspectItemData.ExaminedObject != null)
             {
                 // Reset the position and rotation of the examined object to its original values
-                if (inspectItemData.OriginalPositions.ContainsKey(inspectItemData.ExaminedObject))
+                if (inspectItemData.OriginalPositions.TryGetValue(inspectItemData.ExaminedObject, out var position))
                 {
-                    inspectItemData.ExaminedObject.position = Vector3.Lerp(inspectItemData.ExaminedObject.position, inspectItemData.OriginalPositions[inspectItemData.ExaminedObject], 0.2f);
+                    inspectItemData.ExaminedObject.position = Vector3.Lerp(inspectItemData.ExaminedObject.position, position, 0.2f);
                 }
-                if (inspectItemData.OriginalRotations.ContainsKey(inspectItemData.ExaminedObject))
+                if (inspectItemData.OriginalRotations.TryGetValue(inspectItemData.ExaminedObject, out var rotation))
                 {
-                    inspectItemData.ExaminedObject.rotation = Quaternion.Slerp(inspectItemData.ExaminedObject.rotation, inspectItemData.OriginalRotations[inspectItemData.ExaminedObject], 0.2f);
+                    inspectItemData.ExaminedObject.rotation = Quaternion.Slerp(inspectItemData.ExaminedObject.rotation, rotation, 0.2f);
                 }
             }
         }
@@ -118,17 +124,18 @@ namespace Third_Party_Assets.Scripts
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                inspectItemData.InspectItemBehaviour.PlaySound(RecordedSoundType.ENGLISH);
+                currentInspectItemBehaviour.PlaySound(RecordedSoundType.ENGLISH);
             }
             
             else if (Input.GetKeyDown(KeyCode.S))
             {
-                inspectItemData.InspectItemBehaviour.PlaySound(RecordedSoundType.FOREIGN_LANGUAGE);
+                currentInspectItemBehaviour.PlaySound(RecordedSoundType.FOREIGN_LANGUAGE);
             }
             
             else if (Input.GetKeyDown(KeyCode.V))
             {
-                inspectItemData.InspectItemBehaviour.AddToInventory();
+                currentInspectItemBehaviour.DeleteItem();
+                addToInventoryGameEvent.Raise(currentInspectItemBehaviour.MultiLingualData);
             }
         }
 
@@ -140,11 +147,5 @@ namespace Third_Party_Assets.Scripts
           //Cursor.lockState = CursorLockMode.Locked;
            //Cursor.visible = false;
         }
-
-       
-        // This method is called when the player is examining an object.
-        // It moves the examined object towards the offset object and allows the player to rotate it based on mouse movement.
-
-
     }
 }

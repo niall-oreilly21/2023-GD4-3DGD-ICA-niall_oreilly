@@ -21,8 +21,7 @@ namespace My_Assets.Scripts.ScriptableObjects
 
         //Original rotations of interactable objects
         private Dictionary<Transform, Quaternion> originalRotations = new Dictionary<Transform, Quaternion>();
-        private ItemBehaviour inspectItemBehaviour;
-        
+
         #region Properties
         public bool IsExamining
         {
@@ -41,11 +40,6 @@ namespace My_Assets.Scripts.ScriptableObjects
         }
         public Dictionary<Transform, Vector3> OriginalPositions => originalPositions;
         public Dictionary<Transform, Quaternion> OriginalRotations => originalRotations;
-        public ItemBehaviour InspectItemBehaviour
-        {
-            get => inspectItemBehaviour;
-            set => inspectItemBehaviour = value;
-        }
         #endregion
         public void ToggleExamination()
         {
