@@ -8,7 +8,7 @@ namespace GD
     /// <summary>
     /// Manages the scene transitions
     /// </summary>
-    public class SceneTransitionManager : DoNotDestroyOnLoadBehaviour
+    public class SceneTransitionManager : MonoBehaviour
     {
         public void LoadGame()
         {
@@ -22,6 +22,11 @@ namespace GD
             #else
                 Application.Quit();
             #endif
+        }
+
+        public void LoadMainMenu()
+        {
+            SceneManager.LoadScene("LevelSetUpScene");
         }
     }
 }
