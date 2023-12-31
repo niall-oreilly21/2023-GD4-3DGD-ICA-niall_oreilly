@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using GD;
 using GD.Examples;
 using My_Assets.Scripts.ScriptableObjects;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -18,6 +19,9 @@ namespace My_Assets.Scripts.Managers
 
         [SerializeField] 
         private Inventory inventory;
+        
+        [SerializeField] 
+        private GameObject inventoryIsFull;
         
         public void DisplayShoppingList(List<string> itemsInShoppingList)
         {
@@ -39,6 +43,11 @@ namespace My_Assets.Scripts.Managers
                 GameObject obj = Instantiate(inventoryUIComponent.UiItem, inventoryUIComponent.ItemContent);
                 obj.GetComponent<InventoryItemController>().MultiLingualData = item.Value;
             }
+        }
+        
+        public void DisplayInventoryFull(bool isActive)
+        {
+            inventoryIsFull.SetActive(isActive);
         }
     }
 }
