@@ -19,13 +19,23 @@ namespace My_Assets.Scripts.ScriptableObjects
         [Tooltip("Defines the French text and speech object")]
         private LanguageData frenchLanguageData;
 
-        private bool wordIsToBeTested = false;
+        private LanguageData currentLanguageToLearnData;
+        private bool wordIsToBeTested;
         
         public LanguageData EnglishLanguageData => englishLanguageData;
-        public LanguageData SpanishLanguageData => spanishLanguageData;
-        public LanguageData FrenchLanguageData => frenchLanguageData;
-        
-        
+        public LanguageData CurrentLanguageToLearnData => currentLanguageToLearnData;
+
+        public void SetCurrentLanguageToLearnData(LanguagesToLearnType languagesToLearn)
+        {
+            if (languagesToLearn.Equals(LanguagesToLearnType.Spanish))
+            {
+                currentLanguageToLearnData = spanishLanguageData;
+            }
+            else
+            {
+                currentLanguageToLearnData = frenchLanguageData;
+            }
+        }
         public bool WordIsToBeTested
         {
             get { return wordIsToBeTested; }
