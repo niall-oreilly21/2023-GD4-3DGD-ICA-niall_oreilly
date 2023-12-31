@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/_Scenes/LevelSetUpScene.unity
     guid: 849f906ce79460944a900a10ff60d8d8
   - enabled: 1
-    path: Assets/_Scenes/CA_outline.unity
+    path: Assets/_Scenes/LevelScene.unity
     guid: 840701534e4622a42921f160b3464622
   m_configObjects: {}
