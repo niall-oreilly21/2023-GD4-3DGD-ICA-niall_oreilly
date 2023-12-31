@@ -4,24 +4,25 @@ using Button = UnityEngine.UI.Button;
 
 public class ButtonController : MonoBehaviour
 {
-   public Button myButton;
+   private Button button;
 
    private void Start()
    {
+      button = GetComponent<Button>();
       DisableButton();
    }
 
-   private void SetButtonInteractable(bool isInteractable)
+   public void SetButtonInteractable(bool isInteractable)
    {
-      myButton.interactable = isInteractable;
+      button.interactable = isInteractable;
    }
    
-   public void DisableButton()
+   private void DisableButton()
    {
       SetButtonInteractable(false);
    }
    
-   public void EnableButton()
+   private void EnableButton()
    {
       SetButtonInteractable(true);
    }

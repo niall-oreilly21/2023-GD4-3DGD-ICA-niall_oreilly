@@ -7,6 +7,7 @@ TagManager:
   - PlayerEyes
   - Selectable
   - Pickable
+  - CheckOut
   layers:
   - Default
   - TransparentFX
