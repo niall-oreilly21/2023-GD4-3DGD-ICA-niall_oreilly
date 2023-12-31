@@ -21,6 +21,10 @@ namespace My_Assets.Scripts.Managers
         private void Start()
         {
             multiLingualDataList = new List<MultiLingualData>();
+            
+            levelPreferencesData.CountOfWordsToLearn = 2;
+            levelPreferencesData.CountOfWordsToTest = 2;
+            levelPreferencesData.LanguageToLearn = LanguagesToLearnType.Spanish;
             StartLevel();
         }
 
@@ -36,7 +40,6 @@ namespace My_Assets.Scripts.Managers
 
         private void StartLevel()
         {
-            itemPrefabDictionary.LoadPrefabs(levelPreferencesData.CountOfWordsToLearn);
             LoadPrefabs();
             SetUpMultiLingualDataList();
             SetUpUI();
@@ -49,14 +52,12 @@ namespace My_Assets.Scripts.Managers
             string wordToTest = "";
             foreach (MultiLingualData multiLingualData in multiLingualDataList)
             {
-                if (levelPreferencesData.LanguageToLearn.Equals("French"))
+                wordToTest = levelPreferencesData.LanguageToLearn switch
                 {
-                    wordToTest = multiLingualData.FrenchLanguageData.LanguageText;
-                }
-                else if(levelPreferencesData.LanguageToLearn.Equals("Spanish"))
-                {
-                    wordToTest = multiLingualData.SpanishLanguageData.LanguageText;
-                }
+                    LanguagesToLearnType.French => multiLingualData.FrenchLanguageData.LanguageText,
+                    LanguagesToLearnType.Spanish => multiLingualData.SpanishLanguageData.LanguageText,
+                    _ => wordToTest
+                };
                 shoppingList.Add(wordToTest);
             }
             
@@ -65,6 +66,8 @@ namespace My_Assets.Scripts.Managers
 
         public void LoadPrefabs()
         {
+            itemPrefabDictionary.LoadPrefabs(levelPreferencesData.CountOfWordsToLearn);
+            
             // Instantiate all prefabs in the dictionary
             foreach (GameObject prefab in itemPrefabDictionary.Prefabs.Values)
             {
