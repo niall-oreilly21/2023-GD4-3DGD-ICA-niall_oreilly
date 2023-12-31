@@ -6,6 +6,7 @@ using My_Assets.Scripts.ScriptableObjects;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UIElements;
 
 namespace My_Assets.Scripts.Managers
 {
@@ -16,6 +17,9 @@ namespace My_Assets.Scripts.Managers
         
         [SerializeField]
         private UIComponent inventoryUIComponent;
+        
+        [SerializeField]
+        private UIComponent cartUIComponent;
 
         [SerializeField] 
         private Inventory inventory;
@@ -43,6 +47,23 @@ namespace My_Assets.Scripts.Managers
                 GameObject obj = Instantiate(inventoryUIComponent.UiItem, inventoryUIComponent.ItemContent);
                 obj.GetComponent<InventoryItemController>().MultiLingualData = item.Value;
             }
+        }
+
+        public void DisplayInventoryEndCart()
+        {
+            foreach (MultiLingualData item in inventory.Contents.Values)
+            {
+                DisplayEndMenuCartItem(item.EnglishLanguageData.LanguageText, item.CurrentLanguageToLearnData.LanguageText, item.WordIsToBeTested);
+            }
+
+        }
+        private void DisplayEndMenuCartItem(string englishText, string foreignText, bool isCorrect)
+        {
+            GameObject obj = Instantiate(cartUIComponent.UiItem, cartUIComponent.ItemContent);
+
+            obj.transform.Find("EnglishText").GetComponent<TextMeshProUGUI>().text = englishText;
+            obj.transform.Find("ForeignText").GetComponent<TextMeshProUGUI>().text = foreignText;
+           // obj.transform.Find("ItemState").GetComponent<Image>().sprite = null;
         }
         
         public void DisplayInventoryFull(bool isActive)
