@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2118224274143634202}
   - component: {fileID: 436819924172342351}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: ForeignText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,42 +134,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &3262459443166534421
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8454060628890915008}
-  m_Layer: 5
-  m_Name: Toggle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &8454060628890915008
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3262459443166534421}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4184381492896285150}
-  m_Father: {fileID: 5422838688264838101}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 183.00012, y: -6.199997}
-  m_SizeDelta: {x: 21.796082, y: 21.1181}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3448448570812430505
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +146,7 @@ GameObject:
   - component: {fileID: 4408645297314152374}
   - component: {fileID: 178426621493548081}
   m_Layer: 5
-  m_Name: Background
+  m_Name: ItemState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,12 +165,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5462346107991562892}
-  m_Father: {fileID: 8454060628890915008}
+  m_Father: {fileID: 5422838688264838101}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.700012, y: 5.7}
-  m_SizeDelta: {x: 22.7022, y: 20.8578}
+  m_AnchoredPosition: {x: 188.70013, y: -0.50001144}
+  m_SizeDelta: {x: -485.5017, y: -28.024105}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4408645297314152374
 CanvasRenderer:
@@ -276,7 +240,7 @@ RectTransform:
   m_Children:
   - {fileID: 2690532244327488606}
   - {fileID: 176860230566123534}
-  - {fileID: 8454060628890915008}
+  - {fileID: 4184381492896285150}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -371,7 +335,7 @@ GameObject:
   - component: {fileID: 3391072681557643274}
   - component: {fileID: 1118760779025392514}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: EnglishText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

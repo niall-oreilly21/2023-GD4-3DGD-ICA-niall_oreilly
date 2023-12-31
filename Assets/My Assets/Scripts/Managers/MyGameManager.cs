@@ -17,6 +17,7 @@ namespace My_Assets.Scripts.Managers
         [SerializeField] 
         private ItemPrefabDictionary itemPrefabDictionary;
         private List<MultiLingualData> multiLingualDataList;
+        private bool isPaused;
 
         private void Start()
         {
@@ -44,21 +45,19 @@ namespace My_Assets.Scripts.Managers
             SetUpMultiLingualDataList();
             SetUpUI();
         }
+
+        public void EndLevel()
+        {
+            MyUIManager.Instance.DisplayInventoryEndCart();
+            isPaused = true;
+        }
         
         private void SetUpUI()
         {
             List<string> shoppingList = new List<string>();
-
-            string wordToTest = "";
             foreach (MultiLingualData multiLingualData in multiLingualDataList)
             {
-                wordToTest = levelPreferencesData.LanguageToLearn switch
-                {
-                    LanguagesToLearnType.French => multiLingualData.FrenchLanguageData.LanguageText,
-                    LanguagesToLearnType.Spanish => multiLingualData.SpanishLanguageData.LanguageText,
-                    _ => wordToTest
-                };
-                shoppingList.Add(wordToTest);
+                shoppingList.Add(multiLingualData.CurrentLanguageToLearnData.LanguageText);
             }
             
             MyUIManager.Instance.DisplayShoppingList(shoppingList);
@@ -73,6 +72,7 @@ namespace My_Assets.Scripts.Managers
             {
                 ItemBehaviour itemBehaviour = prefab.GetComponent<ItemBehaviour>();
                 
+                itemBehaviour.MultiLingualData.SetCurrentLanguageToLearnData(levelPreferencesData.LanguageToLearn);
                 multiLingualDataList.Add(itemBehaviour.MultiLingualData);
                 Instantiate(prefab, itemBehaviour.StartPosition, Quaternion.identity);
             }
@@ -100,6 +100,8 @@ namespace My_Assets.Scripts.Managers
         private void Update()
         {
             CheckGameOver();
+
+            Time.timeScale = isPaused ? 0 : 1;
         }
 
         private void CheckGameOver()
