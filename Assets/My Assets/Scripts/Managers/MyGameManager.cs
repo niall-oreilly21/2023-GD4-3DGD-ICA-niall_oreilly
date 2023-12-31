@@ -1,42 +1,66 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using GD;
+using My_Assets.Scripts.Behaviours;
 using My_Assets.Scripts.ScriptableObjects;
 using Sirenix.Reflection.Editor;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace My_Assets.Scripts.Managers
 {
-    public class MyGameManager : Singleton<MyGameManager>
+    public class MyGameManager : GD.Singleton<MyGameManager>
     {
         [SerializeField]
         private LevelPreferencesData levelPreferencesData;
 
         [SerializeField] 
         private ItemPrefabDictionary itemPrefabDictionary;
-
-        private List<String> randomItemsToTest;
+        private List<MultiLingualData> multiLingualDataList;
 
         private void Start()
         {
+            multiLingualDataList = new List<MultiLingualData>();
             StartLevel();
+        }
+
+        private void OnDestroy()
+        {
+            foreach (MultiLingualData multiLingualData in multiLingualDataList)
+            {
+                multiLingualData.WordIsToBeTested = false;
+            }
+
+            levelPreferencesData.ResetLevelPreferences();
         }
 
         private void StartLevel()
         {
-            itemPrefabDictionary.LoadPrefabs(2);
+            itemPrefabDictionary.LoadPrefabs(levelPreferencesData.CountOfWordsToLearn);
             LoadPrefabs();
-            // Shuffle the list of available prefab names
-            List<string> availablePrefabNames = new List<string>(itemPrefabDictionary.Prefabs.Keys);
-            ShuffleList(availablePrefabNames);
+            SetUpMultiLingualDataList();
+            SetUpUI();
+        }
+        
+        private void SetUpUI()
+        {
+            List<string> shoppingList = new List<string>();
 
-            // Take a subset of prefab names based on CountOfWordsToTest
-            randomItemsToTest = availablePrefabNames.Take(2).ToList();
-
-            List<string> temp = new List<string>(){"Banana", "Apple","Banana", "Apple","Banana", "Apple","Banana", "Apple"};
-
-            MyUIManager.Instance.DisplayShoppingList(temp);
+            string wordToTest = "";
+            foreach (MultiLingualData multiLingualData in multiLingualDataList)
+            {
+                if (levelPreferencesData.LanguageToLearn.Equals("French"))
+                {
+                    wordToTest = multiLingualData.FrenchLanguageData.LanguageText;
+                }
+                else if(levelPreferencesData.LanguageToLearn.Equals("Spanish"))
+                {
+                    wordToTest = multiLingualData.SpanishLanguageData.LanguageText;
+                }
+                shoppingList.Add(wordToTest);
+            }
+            
+            MyUIManager.Instance.DisplayShoppingList(shoppingList);
         }
 
         public void LoadPrefabs()
@@ -44,9 +68,17 @@ namespace My_Assets.Scripts.Managers
             // Instantiate all prefabs in the dictionary
             foreach (GameObject prefab in itemPrefabDictionary.Prefabs.Values)
             {
-                Vector3 startPosition = prefab.GetComponent<ItemBehaviour>().StartPosition;
-                Instantiate(prefab, startPosition, Quaternion.identity);
+                ItemBehaviour itemBehaviour = prefab.GetComponent<ItemBehaviour>();
+                
+                multiLingualDataList.Add(itemBehaviour.MultiLingualData);
+                Instantiate(prefab, itemBehaviour.StartPosition, Quaternion.identity);
             }
+        }
+        
+        private void SetUpMultiLingualDataList()
+        {
+            FisherYatesAlgorithm.ShuffleList(multiLingualDataList);
+            multiLingualDataList = multiLingualDataList.Take(levelPreferencesData.CountOfWordsToTest).ToList();
         }
 
         public void LoadPrefab(string itemToAdd)
@@ -61,18 +93,7 @@ namespace My_Assets.Scripts.Managers
                 Debug.LogWarning($"Prefab with key '{itemToAdd}' not found in the dictionary.");
             }
         }
-        
-        // Fisher-Yates shuffle algorithm
-        private void ShuffleList<T>(List<T> list)
-        {
-            System.Random random = new System.Random();
-            int n = list.Count;
-            for (int i = n - 1; i > 0; i--)
-            {
-                int j = random.Next(0, i + 1);
-                (list[i], list[j]) = (list[j], list[i]);
-            }
-        }
+
         private void Update()
         {
             CheckGameOver();

@@ -11,16 +11,9 @@ namespace My_Assets.Scripts.ScriptableObjects
         {
             CheckErrors();
             List<GameObject> prefabList = AssetLoader.FindPrefabs("Assets/" + FolderPath, "t:Prefab");
-
-            // Shuffle the list using Fisher-Yates algorithm  ref https://www.geeksforgeeks.org/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/
-            System.Random random = new System.Random();
-            int n = prefabList.Count;
-            for (int i = n - 1; i > 0; i--)
-            {
-                int j = random.Next(0, i + 1);
-                (prefabList[i], prefabList[j]) = (prefabList[j], prefabList[i]);
-            }
-
+            
+            FisherYatesAlgorithm.ShuffleList(prefabList);
+            
             // Add only the desired number of items
             int itemsAdded = 0;
             foreach (GameObject prefab in prefabList)

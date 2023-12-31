@@ -11,6 +11,13 @@ namespace My_Assets.Scripts.ScriptableObjects
         private int countOfWordsToTest = 0;
         private bool tutorialSelected = false;
 
+        public void ResetLevelPreferences()
+        {
+            languageToLearn = "";
+            countOfWordsToTest = 0;
+            countOfWordsToLearn = 0;
+        }
+
         #region Properties
 
         public string LanguageToLearn

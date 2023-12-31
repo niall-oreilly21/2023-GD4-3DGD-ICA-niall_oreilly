@@ -16,7 +16,6 @@ namespace My_Assets.Scripts.Managers
         }
         public void AddItemToInventory(MultiLingualData item)
         {
-            Debug.Log(item.name);
             if (!inventory.Contents.ContainsKey(item.name))
             {
                 inventory.Contents.Add(item.name, item);

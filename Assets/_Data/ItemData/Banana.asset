@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: b12f78ea-950e-4737-ab83-adf274e06c69
-  LastUpdated: 30/12/23 18:05:51
+  LastUpdated: 31/12/23 03:34:24
   LastUpdatedBy: 
   Notes: 
   Description: 
@@ -32,7 +32,7 @@ MonoBehaviour:
     languageText: 
   spanishLanguageData:
     textToSpeech: {fileID: 0}
-    languageText: 
+    languageText: YUMMY
   frenchLanguageData:
     textToSpeech: {fileID: 0}
     languageText: 

@@ -6,10 +6,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SetLevelPreferencesBehaviour : MonoBehaviour
+public class SetLevelPreferencesController : MonoBehaviour
 {
     [SerializeField]
-    private InputField languageToLearn;
+    private TMP_InputField languageToLearn;
     
     [SerializeField]
     private Slider countOfWordsToLearn;
@@ -30,7 +30,7 @@ public class SetLevelPreferencesBehaviour : MonoBehaviour
 
     private void UpdateLevelPreferences()
     {
-        //levelPreferencesData.LanguageToLearn = languageToLearn.text;
+        levelPreferencesData.LanguageToLearn = languageToLearn.text;
         levelPreferencesData.CountOfWordsToLearn = (int)countOfWordsToLearn.value;
         levelPreferencesData.CountOfWordsToTest = (int)countOfWordsToTest.value;
         //levelPreferencesData.TutorialSelected = tutorialSelected.text;
