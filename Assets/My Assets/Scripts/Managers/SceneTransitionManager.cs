@@ -1,14 +1,12 @@
-using System.Collections;
-using My_Assets.Scripts.Managers;
-using UnityEngine;
+using My_Assets.Scripts.Behaviours;
 using UnityEngine.SceneManagement;
 
-namespace GD
+namespace My_Assets.Scripts.Managers
 {
     /// <summary>
     /// Manages the scene transitions
     /// </summary>
-    public class SceneTransitionManager : MonoBehaviour
+    public class SceneTransitionManager : DoNotDestroyOnLoadSingleton<SceneTransitionManager>
     {
         public void LoadGame()
         {
