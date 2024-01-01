@@ -1,3 +1,4 @@
+using My_Assets.Scripts.ScriptableObjects;
 using TMPro;
 using UnityEngine;
 
@@ -5,23 +6,22 @@ namespace My_Assets.Scripts.Behaviours.Timer
 {
     public class ClockBehaviour : TimerBehaviour
     {
-        [SerializeField]
-        private TextMeshProUGUI clockText;
-        
-        [SerializeField]
-        private Color baseColor;
+        [SerializeField] 
+        private ClockData clockData;
         
         [SerializeField]
         private int timeLeftBeforeColourChanges;
         
         [SerializeField]
         private Color endColor;
-
-        protected override void Start()
+        
+        private TextMeshProUGUI clockText;
+        private Color baseColor;
+        void Start()
         {
             clockText = GetComponent<TextMeshProUGUI>();
             baseColor = clockText.color;
-            base.Start();
+            StartTimer(clockData.GetTotalSeconds());
         }
 
         protected override void Update()
@@ -34,6 +34,7 @@ namespace My_Assets.Scripts.Behaviours.Timer
         protected override void HandleTimerComplete()
         {
             clockText.color = baseColor;
+            gameObject.SetActive(false);
             timerEndEvent.Raise();
         }
 
@@ -41,13 +42,13 @@ namespace My_Assets.Scripts.Behaviours.Timer
         {
             if (totalTime <= timeLeftBeforeColourChanges && totalTime > 0f)
             {
-                clockText.color = Color.red;
+                clockText.color = endColor;
             }
         }
         
         private void UpdateClock()
         {
-            clockText.text = string.Format("{0:0}:{1:00}", GetCurrentMinutes(), GetCurrentSeconds());
+            clockText.SetText($"{GetCurrentMinutes():0}:{GetCurrentSeconds():00}");
         }
         
         private float GetCurrentMinutes()
