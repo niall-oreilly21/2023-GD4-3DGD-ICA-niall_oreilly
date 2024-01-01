@@ -18,11 +18,6 @@ public class InventoryItemController : MonoBehaviour
     {
         set => multiLingualData = value;
     }
-    
-    private void Awake()
-    {
-        
-    }
 
     public void RemoveItem()
     {

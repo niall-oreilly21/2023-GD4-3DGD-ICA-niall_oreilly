@@ -4,17 +4,17 @@ using UnityEngine.UI;
 
 namespace My_Assets.Scripts.Behaviours
 {
-    public class SliderUIMaxCountOfWordsToTestController : MonoBehaviour
+    public class SliderUIMaxCountController : MonoBehaviour
     {
         [SerializeField]
-        private Slider countOfWordsToLearn;
+        private Slider sourceSlider;
         
         [SerializeField]
-        private Slider countOfWordsToTest;
+        private Slider targetSlider;
 
         public void SetMaxCountOfWordsToTest()
         {
-            countOfWordsToTest.maxValue = countOfWordsToLearn.value;
+            targetSlider.maxValue = sourceSlider.value;
         }
     }
 }
