@@ -42,7 +42,8 @@ namespace My_Assets.Scripts.Managers
 
         public void EndLevel()
         {
-            MyUIManager.Instance.DisplayInventoryEndCart(multiLingualDataList.Except(inventory.Contents.Values).ToList(), levelPreferencesData.CountOfWordsToLearn);
+            //MyUIManager.Instance.DisplayInventoryEndCart(multiLingualDataList.Except(inventory.Contents.Values).ToList(), levelPreferencesData.CountOfWordsToLearn);
+            MyUIManager.Instance.UnHideEndScreen();
             isPaused = true;
         }
 

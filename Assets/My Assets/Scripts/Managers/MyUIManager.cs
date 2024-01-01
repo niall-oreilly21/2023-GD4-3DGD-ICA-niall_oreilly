@@ -27,6 +27,12 @@ namespace My_Assets.Scripts.Managers
         [SerializeField] 
         private GameObject inventoryIsFull;
         
+        [SerializeField] 
+        private GameObject shoppingListUI;
+
+        [SerializeField] 
+        private GameObject endMenuUI;
+        
         public void DisplayShoppingList(List<string> itemsInShoppingList)
         {
             foreach (string item in itemsInShoppingList)
@@ -42,20 +48,26 @@ namespace My_Assets.Scripts.Managers
             {
                 Destroy(item.gameObject);
             }
-            foreach (KeyValuePair<string, MultiLingualData> item in inventory.Contents)
+            foreach (MultiLingualData item in inventory.Contents.Values)
             {
                 GameObject obj = Instantiate(inventoryUIComponent.UiItem, inventoryUIComponent.ItemContent);
-                obj.GetComponent<InventoryItemController>().MultiLingualData = item.Value;
+                obj.GetComponent<InventoryItemController>().MultiLingualData = item;
             }
         }
 
-        public void DisplayInventoryEndCart()
+        public void DisplayInventoryEndCart(List<MultiLingualData> itemsNotInInventory, int totalWordsInShoppingList)
         {
             foreach (MultiLingualData item in inventory.Contents.Values)
             {
                 DisplayEndMenuCartItem(item.EnglishLanguageData.LanguageText, item.CurrentLanguageToLearnData.LanguageText, item.WordIsToBeTested);
             }
 
+        }
+
+        public void UnHideEndScreen()
+        {
+            shoppingListUI.SetActive(false);
+            endMenuUI.SetActive(true);
         }
         private void DisplayEndMenuCartItem(string englishText, string foreignText, bool isCorrect)
         {
