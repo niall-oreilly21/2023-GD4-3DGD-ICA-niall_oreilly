@@ -11,20 +11,15 @@ namespace My_Assets.Scripts.Behaviours.Timer
         private float totalSeconds;
         protected float totalTime;
         private float elapsedTime;
-        
-        protected virtual void Start()
-        {
-            StartTimer(totalSeconds);
-        }
-    
+
         protected virtual void Update()
-        { 
-            elapsedTime += UnityEngine.Time.deltaTime;
+        {
+            elapsedTime += Time.deltaTime;
             totalTime = Mathf.Max(totalSeconds - elapsedTime, 0f);
             CheckTimerComplete();
         }
 
-        private void StartTimer(float interval)
+        protected void StartTimer(float interval)
         {
             totalSeconds = interval;
             elapsedTime = 0f;
