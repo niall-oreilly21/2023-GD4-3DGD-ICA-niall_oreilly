@@ -34,7 +34,7 @@ namespace My_Assets.Scripts.Managers
             {
                 inventory.Contents.Remove(item.name);
             }
-            MyGameManager.Instance.LoadPrefab(item.name);
+            PrefabManager.Instance.LoadPrefab(item.name);
         }
 
         private void Update()
