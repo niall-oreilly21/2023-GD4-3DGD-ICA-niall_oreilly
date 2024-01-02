@@ -15,6 +15,8 @@ namespace My_Assets.Scripts
         
         public LanguageToggleData()
         {
+            language = LanguagesToLearnType.Spanish;
+            toggle = null;
         }
 
         public LanguagesToLearnType Language
