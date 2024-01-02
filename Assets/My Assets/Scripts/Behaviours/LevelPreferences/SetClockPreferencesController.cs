@@ -16,13 +16,13 @@ namespace My_Assets.Scripts.Behaviours
         [SerializeField] 
         private Slider secondsSlider;
 
-        private void Update()
-        {
-            UpdateClockPreferences();
-        }
-        private void UpdateClockPreferences()
+        public void SetMinutePreference()
         {
             clockData.Minutes = (int)minutesSlider.value;
+        }
+
+        public void SetSecondPreference()
+        {
             clockData.Seconds = (int)secondsSlider.value;
         }
     }
