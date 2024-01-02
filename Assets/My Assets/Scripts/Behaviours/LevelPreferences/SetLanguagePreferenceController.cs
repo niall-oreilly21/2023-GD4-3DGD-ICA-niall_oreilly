@@ -1,26 +1,13 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using GD;
 using My_Assets.Scripts.ScriptableObjects;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace My_Assets.Scripts.Behaviours
 {
-    public class SetLevelPreferencesController : MonoBehaviour
+    public class SetLanguagePreferenceController : MonoBehaviour
     {
-        [SerializeField]
-        private Slider countOfWordsToLearn;
-    
-        [SerializeField]
-        private Slider countOfWordsToTest;
-
-        [SerializeField]
-        private InputField  tutorialSelected;
-    
         [SerializeField]
         private LevelPreferencesData  levelPreferencesData;
 
@@ -33,11 +20,7 @@ namespace My_Assets.Scripts.Behaviours
         {
             currentToggle = new LanguageToggleData();
         }
-
-        void Update()
-        {
-            UpdateLevelPreferences();
-        }
+        
         public void SetLanguageToLearn(string languageToLearn)
         {
             var languagesToLearnType = languageToLearn.Equals("Spanish") ? LanguagesToLearnType.Spanish : LanguagesToLearnType.French;
@@ -49,25 +32,15 @@ namespace My_Assets.Scripts.Behaviours
             
             foreach (var toggle in toggles.Where(toggle => toggle.Language.Equals(languagesToLearnType)))
             {
-                
                 // Disable the currentToggleSelected
                 if (currentToggle.Toggle != null)
                 {
                     currentToggle.Toggle.isOn = false;
                 }
 
-                // Update the languageToLearn in levelPreferencesData
-                
                 levelPreferencesData.LanguageToLearn = languagesToLearnType;
-
                 currentToggle = toggle;
             }
-        }
-        
-        private void UpdateLevelPreferences()
-        {
-            levelPreferencesData.CountOfWordsToLearn = (int)countOfWordsToLearn.value;
-            levelPreferencesData.CountOfWordsToTest = (int)countOfWordsToTest.value;
         }
     }
 }
