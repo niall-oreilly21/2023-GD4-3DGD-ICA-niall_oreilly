@@ -22,17 +22,16 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: 929ef529-4d77-4a7d-9048-cc6e34901a25
-  LastUpdated: 31/12/23 03:34:24
+  LastUpdated: 02/01/24 13:11:20
   LastUpdatedBy: 
   Notes: 
   Description: 
   Type: 0
   englishLanguageData:
+    languageType: 0
     textToSpeech: {fileID: 0}
-    languageText: 
-  spanishLanguageData:
+    languageText: Banana
+  languageDatas:
+  - languageType: 2
     textToSpeech: {fileID: 0}
-    languageText: EAT
-  frenchLanguageData:
-    textToSpeech: {fileID: 0}
-    languageText: 
+    languageText: ERERE

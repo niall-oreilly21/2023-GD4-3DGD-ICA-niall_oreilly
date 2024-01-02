@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using GD;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -12,12 +14,8 @@ namespace My_Assets.Scripts.ScriptableObjects
         private LanguageData englishLanguageData;
         
         [SerializeField]
-        [Tooltip("Defines the Spanish text and speech object")]
-        private LanguageData spanishLanguageData;
-        
-        [SerializeField]
-        [Tooltip("Defines the French text and speech object")]
-        private LanguageData frenchLanguageData;
+        [Tooltip("Defines the Languages that can be learnt")]
+        private List<LanguageData> languageDatas;
 
         private LanguageData currentLanguageToLearnData;
         private bool wordIsToBeTested;
@@ -25,15 +23,11 @@ namespace My_Assets.Scripts.ScriptableObjects
         public LanguageData EnglishLanguageData => englishLanguageData;
         public LanguageData CurrentLanguageToLearnData => currentLanguageToLearnData;
 
-        public void SetCurrentLanguageToLearnData(LanguagesToLearnType languagesToLearn)
+        public void SetCurrentLanguageToLearnData(LanguageType languageType)
         {
-            if (languagesToLearn.Equals(LanguagesToLearnType.Spanish))
+            foreach (var languageData in languageDatas.Where(languageData => languageData.LanguageType.Equals(languageType)))
             {
-                currentLanguageToLearnData = spanishLanguageData;
-            }
-            else
-            {
-                currentLanguageToLearnData = frenchLanguageData;
+                currentLanguageToLearnData = languageData;
             }
         }
         public bool WordIsToBeTested

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace My_Assets.Scripts
@@ -7,19 +8,19 @@ namespace My_Assets.Scripts
     [System.Serializable]
     public class LanguageToggleData
     {
-        [SerializeField]
-        private LanguagesToLearnType language;
+        [FormerlySerializedAs("language")] [SerializeField]
+        private LanguageType language;
         
         [SerializeField]
         private Toggle toggle;
         
         public LanguageToggleData()
         {
-            language = LanguagesToLearnType.Spanish;
+            language = LanguageType.Spanish;
             toggle = null;
         }
 
-        public LanguagesToLearnType Language
+        public LanguageType Language
         {
             get { return language; }
             set { language = value; }

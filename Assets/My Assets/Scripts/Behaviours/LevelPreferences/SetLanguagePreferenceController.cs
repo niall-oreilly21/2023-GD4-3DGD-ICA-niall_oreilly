@@ -23,7 +23,7 @@ namespace My_Assets.Scripts.Behaviours
         
         public void SetLanguageToLearn(string languageToLearn)
         {
-            var languagesToLearnType = languageToLearn.Equals("Spanish") ? LanguagesToLearnType.Spanish : LanguagesToLearnType.French;
+            var languagesToLearnType = languageToLearn.Equals("Spanish") ? LanguageType.Spanish : LanguageType.French;
             
             if (currentToggle.Language.Equals(languagesToLearnType))
             {
@@ -38,7 +38,7 @@ namespace My_Assets.Scripts.Behaviours
                     currentToggle.Toggle.isOn = false;
                 }
 
-                levelPreferencesData.LanguageToLearn = languagesToLearnType;
+                levelPreferencesData.Language = languagesToLearnType;
                 currentToggle = toggle;
             }
         }

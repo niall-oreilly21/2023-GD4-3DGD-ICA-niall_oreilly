@@ -17,7 +17,7 @@ namespace My_Assets.Scripts.Managers
         {
             levelPreferencesData.CountOfWordsToLearn = 2;
             levelPreferencesData.CountOfWordsToTest = 2;
-            levelPreferencesData.LanguageToLearn = LanguagesToLearnType.Spanish;
+            levelPreferencesData.Language = LanguageType.Spanish;
         }
 
         public void LoadPrefabs(List<MultiLingualData> multiLingualDataList)
@@ -29,7 +29,7 @@ namespace My_Assets.Scripts.Managers
             {
                 ItemBehaviour itemBehaviour = prefab.GetComponent<ItemBehaviour>();
                 
-                itemBehaviour.MultiLingualData.SetCurrentLanguageToLearnData(levelPreferencesData.LanguageToLearn);
+                itemBehaviour.MultiLingualData.SetCurrentLanguageToLearnData(levelPreferencesData.Language);
                 multiLingualDataList.Add(itemBehaviour.MultiLingualData);
                 Instantiate(prefab, itemBehaviour.StartPosition, Quaternion.identity);
             }

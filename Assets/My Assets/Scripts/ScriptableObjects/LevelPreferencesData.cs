@@ -6,24 +6,24 @@ namespace My_Assets.Scripts.ScriptableObjects
     [CreateAssetMenu(fileName = "LevelPreferences", menuName = "DkIT/Scriptable Objects/Game/LevelPreferences", order = 5)]
     public class LevelPreferencesData : BaseObjectData
     {
-        private LanguagesToLearnType languageToLearn = LanguagesToLearnType.Spanish;
+        private LanguageType language = LanguageType.Spanish;
         private int countOfWordsToLearn = 0;
         private int countOfWordsToTest = 0;
         private bool tutorialSelected = false;
 
         public void ResetLevelPreferences()
         {
-            languageToLearn = LanguagesToLearnType.Spanish;
+            language = LanguageType.Spanish;
             countOfWordsToTest = 0;
             countOfWordsToLearn = 0;
         }
 
         #region Properties
 
-        public LanguagesToLearnType LanguageToLearn
+        public LanguageType Language
         {
-            get { return languageToLearn; }
-            set { languageToLearn = value; }
+            get { return language; }
+            set { language = value; }
         }
 
         public int CountOfWordsToLearn

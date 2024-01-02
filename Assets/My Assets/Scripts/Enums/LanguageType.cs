@@ -1,7 +1,8 @@
 namespace My_Assets.Scripts
 {
-    public enum LanguagesToLearnType
+    public enum LanguageType
     {
+        English,
         French,
         Spanish
     }
