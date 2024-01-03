@@ -27,9 +27,10 @@ namespace My_Assets.Scripts.Behaviours
             
             if (currentToggle.Language.Equals(languagesToLearnType))
             {
+                currentToggle.Toggle.isOn = false;
                 return;
             }
-            
+
             foreach (var toggle in toggles.Where(toggle => toggle.Language.Equals(languagesToLearnType)))
             {
                 // Disable the currentToggleSelected
