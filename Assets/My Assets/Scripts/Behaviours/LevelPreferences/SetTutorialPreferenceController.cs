@@ -1,3 +1,4 @@
+using System;
 using My_Assets.Scripts.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,13 +9,17 @@ namespace My_Assets.Scripts.Behaviours
     {
         [SerializeField] 
         private LevelPreferencesData levelPreferencesData;
-        
-        [SerializeField] 
-        private Toggle tutorialToggle;
 
-        public void SetTutorial(bool isTutorial)
+        private Toggle toggle;
+
+        private void Start()
         {
-            levelPreferencesData.TutorialSelected = isTutorial;
+            toggle = GetComponent<Toggle>();
+        }
+
+        public void SetTutorialPreference()
+        {
+            levelPreferencesData.TutorialSelected = toggle.isOn;
         }
     }
 }

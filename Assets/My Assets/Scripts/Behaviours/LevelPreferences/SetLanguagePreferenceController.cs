@@ -27,7 +27,6 @@ namespace My_Assets.Scripts.Behaviours
             
             if (currentToggle.Language.Equals(languagesToLearnType))
             {
-                currentToggle.Toggle.isOn = false;
                 return;
             }
 
