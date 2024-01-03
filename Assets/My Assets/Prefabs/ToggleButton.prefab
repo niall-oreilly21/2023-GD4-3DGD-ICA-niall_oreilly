@@ -317,8 +317,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: French
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a7a4deb63095b704f85a87d742691221, type: 2}
-  m_sharedMaterial: {fileID: -5848864106677262542, guid: a7a4deb63095b704f85a87d742691221, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d42ce904fa7b5344d904560bbe40e0b8, type: 2}
+  m_sharedMaterial: {fileID: 1478789198321917996, guid: d42ce904fa7b5344d904560bbe40e0b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -342,8 +342,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
