@@ -38,6 +38,7 @@ namespace My_Assets.Scripts.Managers
             PrefabManager.Instance.LoadPrefabs(multiLingualDataList);
             SetUpMultiLingualDataList();
             SetUpUI();
+            SoundManager.Instance.SwitchMenuAudio();
         }
 
         public void EndLevel()
@@ -49,6 +50,7 @@ namespace My_Assets.Scripts.Managers
 
         public void LoadMainMenu()
         {
+            SoundManager.Instance.SwitchMenuAudio();
             SceneTransitionManager.Instance.LoadMainMenu();
         }
         
@@ -61,6 +63,11 @@ namespace My_Assets.Scripts.Managers
             }
             
             MyUIManager.Instance.DisplayShoppingList(shoppingList);
+
+            if (levelPreferencesData.TutorialSelected)
+            {
+                MyUIManager.Instance.SetTutorialTextState(true);
+            }
         }
 
         private void SetUpMultiLingualDataList()

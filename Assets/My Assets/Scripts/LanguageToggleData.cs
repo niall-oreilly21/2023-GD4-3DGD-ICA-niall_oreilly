@@ -16,7 +16,7 @@ namespace My_Assets.Scripts
         
         public LanguageToggleData()
         {
-            language = LanguageType.Spanish;
+            language = LanguageType.English;
             toggle = null;
         }
 
