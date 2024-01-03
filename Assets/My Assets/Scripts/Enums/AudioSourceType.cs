@@ -5,7 +5,7 @@ namespace My_Assets.Scripts
 {
     public enum AudioSourceType
     {
-        Menu,
+        Background,
         GameEvent
     }
 }

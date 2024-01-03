@@ -19,10 +19,14 @@ namespace My_Assets.Scripts.Managers
 
         private void Start()
         {
-            isMenuAudioPlaying = false;
+            if (isInitialised.Value)
+            {
+                return;
+            }
             
+            isInitialised.Value = true;
+            isMenuAudioPlaying = false;
             audioSources = GetComponents<AudioSource>();
-
             if (audioSources == null || audioSources.Length < 2)
             {
                 Debug.LogError("Two AudioSource components not found on the same GameObject as SoundManager.");
@@ -40,21 +44,21 @@ namespace My_Assets.Scripts.Managers
         public void SwitchMenuAudio()
         {
             isMenuAudioPlaying = !isMenuAudioPlaying;
-            
+
             if (isMenuAudioPlaying)
             {
-                audioSources[(int)AudioSourceType.Menu].clip = menuAudio;
+                audioSources[(int)AudioSourceType.Background].clip = menuAudio;
             }
             else
             {
-                audioSources[(int)AudioSourceType.Menu].clip = gameBacktrackAudio;
+                audioSources[(int)AudioSourceType.Background].clip = gameBacktrackAudio;
             }
-            audioSources[(int)AudioSourceType.Menu].Play();
+            audioSources[(int)AudioSourceType.Background].Play();
         }
 
-        public void StopBackgroundAudio()
+        private void StopBackgroundAudio()
         {
-            audioSources[(int)AudioSourceType.Menu].Stop();
+            audioSources[(int)AudioSourceType.Background].Stop();
         }
     }
 }
