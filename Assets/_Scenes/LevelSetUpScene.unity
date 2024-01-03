@@ -1045,7 +1045,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 24107244775385265, guid: fed10b0ac7e7d56408d9ab0d18751bae, type: 3}
       propertyPath: m_Name
-      value: StartGameButton (1)
+      value: BackButton
       objectReference: {fileID: 0}
     - target: {fileID: 1254947096881221220, guid: fed10b0ac7e7d56408d9ab0d18751bae, type: 3}
       propertyPath: m_Colors.m_NormalColor.b
@@ -1253,6 +1253,22 @@ PrefabInstance:
       propertyPath: m_text
       value: Yes
       objectReference: {fileID: 0}
+    - target: {fileID: 3909911751365143856, guid: 41f21e98304697b4a9284bfeff6a83bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909911751365143856, guid: 41f21e98304697b4a9284bfeff6a83bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1643091776}
+    - target: {fileID: 3909911751365143856, guid: 41f21e98304697b4a9284bfeff6a83bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetTutorialPreference
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909911751365143856, guid: 41f21e98304697b4a9284bfeff6a83bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: My_Assets.Scripts.Behaviours.SetTutorialPreferenceController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7747662658919255150, guid: 41f21e98304697b4a9284bfeff6a83bb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1336,7 +1352,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4853782913126925923, guid: 41f21e98304697b4a9284bfeff6a83bb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1643091776}
   m_SourcePrefab: {fileID: 100100000, guid: 41f21e98304697b4a9284bfeff6a83bb, type: 3}
 --- !u!1001 &552653148
 PrefabInstance:
@@ -1722,7 +1741,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 696125023}
-  - component: {fileID: 696125024}
   - component: {fileID: 696125026}
   - component: {fileID: 696125025}
   m_Layer: 5
@@ -1753,20 +1771,6 @@ RectTransform:
   m_AnchoredPosition: {x: 347, y: 80.11106}
   m_SizeDelta: {x: 191.6867, y: 134.9015}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &696125024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 696125022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2e6f86643ac48b9b616946f6e840c92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelPreferencesData: {fileID: 11400000, guid: 1bf3b8b27ea76044781f3baad802b301, type: 2}
-  tutorialToggle: {fileID: 1499899275}
 --- !u!114 &696125025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3037,7 +3041,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3133,7 +3137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5088d2c449e427381f699db41ec0faa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuAudio: {fileID: 0}
+  menuAudio: {fileID: 8300000, guid: 5ae83f56bf2b4564e91bd4aeea3ebe5d, type: 3}
   gameBacktrackAudio: {fileID: 0}
   audioSources: []
 --- !u!4 &1249808470
@@ -3481,17 +3485,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e50d231a11d9284994ed2546b981a4d, type: 3}
---- !u!114 &1499899275 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3909911751365143856, guid: 41f21e98304697b4a9284bfeff6a83bb, type: 3}
-  m_PrefabInstance: {fileID: 475647766}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1565233901 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3909911751365143856, guid: 41f21e98304697b4a9284bfeff6a83bb, type: 3}
@@ -3681,6 +3674,24 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5dfb057c200ed7f4a8d43c52f25479c8, type: 3}
+--- !u!1 &1643091774 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4853782913126925923, guid: 41f21e98304697b4a9284bfeff6a83bb, type: 3}
+  m_PrefabInstance: {fileID: 475647766}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1643091776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643091774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2e6f86643ac48b9b616946f6e840c92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelPreferencesData: {fileID: 11400000, guid: 1bf3b8b27ea76044781f3baad802b301, type: 2}
 --- !u!1 &1764147450
 GameObject:
   m_ObjectHideFlags: 0

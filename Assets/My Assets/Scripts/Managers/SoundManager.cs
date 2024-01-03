@@ -19,7 +19,7 @@ namespace My_Assets.Scripts.Managers
 
         private void Start()
         {
-            isMenuAudioPlaying = true;
+            isMenuAudioPlaying = false;
             
             audioSources = GetComponents<AudioSource>();
 
@@ -39,16 +39,17 @@ namespace My_Assets.Scripts.Managers
 
         public void SwitchMenuAudio()
         {
+            isMenuAudioPlaying = !isMenuAudioPlaying;
+            
             if (isMenuAudioPlaying)
-            {
-                audioSources[(int)AudioSourceType.Menu].clip = gameBacktrackAudio;
-            }
-            else
             {
                 audioSources[(int)AudioSourceType.Menu].clip = menuAudio;
             }
+            else
+            {
+                audioSources[(int)AudioSourceType.Menu].clip = gameBacktrackAudio;
+            }
             audioSources[(int)AudioSourceType.Menu].Play();
-            isMenuAudioPlaying = !isMenuAudioPlaying;
         }
 
         public void StopBackgroundAudio()
