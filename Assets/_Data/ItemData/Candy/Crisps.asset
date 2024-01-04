@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: 09cb60bc-fd94-466c-871b-007ea445d199
-  LastUpdated: 04/01/24 03:34:06
+  LastUpdated: 04/01/24 03:58:00
   LastUpdatedBy: 
   Notes: 
   Description: 
@@ -34,8 +34,8 @@ MonoBehaviour:
     languageText: Crisps
   languageDatas:
   - languageType: 1
+    textToSpeech: {fileID: 8300000, guid: 5b2c8087595c13a4bbddd2bfb8726286, type: 3}
+    languageText: Chips
+  - languageType: 2
     textToSpeech: {fileID: 8300000, guid: fb7b4a7f9e890504e9b71705b34bd362, type: 3}
     languageText: Patatas fritas
-  - languageType: 2
-    textToSpeech: {fileID: 0}
-    languageText: Chips

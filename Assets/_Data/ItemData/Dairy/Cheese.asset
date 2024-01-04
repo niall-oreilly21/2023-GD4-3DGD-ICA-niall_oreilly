@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: 09cb60bc-fd94-466c-871b-007ea445d199
-  LastUpdated: 04/01/24 03:34:26
+  LastUpdated: 04/01/24 03:58:42
   LastUpdatedBy: 
   Notes: 
   Description: 
@@ -34,8 +34,8 @@ MonoBehaviour:
     languageText: Cheese
   languageDatas:
   - languageType: 1
+    textToSpeech: {fileID: 8300000, guid: c69543cdf00189547a91fb583d91f7b7, type: 3}
+    languageText: Fromage
+  - languageType: 2
     textToSpeech: {fileID: 8300000, guid: 59a3bfc3d4b5f8041b47f4bffbde8bcf, type: 3}
     languageText: Queso
-  - languageType: 2
-    textToSpeech: {fileID: 0}
-    languageText: Fromage

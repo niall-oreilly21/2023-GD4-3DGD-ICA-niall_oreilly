@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: 09cb60bc-fd94-466c-871b-007ea445d199
-  LastUpdated: 04/01/24 03:37:25
+  LastUpdated: 04/01/24 04:04:50
   LastUpdatedBy: 
   Notes: 
   Description: 
@@ -34,8 +34,8 @@ MonoBehaviour:
     languageText: Mushroom
   languageDatas:
   - languageType: 1
-    textToSpeech: {fileID: 8300000, guid: 8eea1e9ce5cf0ea42b35eebbb99cadb8, type: 3}
-    languageText: "champi\xF1\xF3n"
+    textToSpeech: {fileID: 8300000, guid: ba5075ed5b32b1e42b7de17f0404ae42, type: 3}
+    languageText: Champignon
   - languageType: 2
-    textToSpeech: {fileID: 0}
-    languageText: champignon
+    textToSpeech: {fileID: 8300000, guid: 8eea1e9ce5cf0ea42b35eebbb99cadb8, type: 3}
+    languageText: "Champi\xF1\xF3n"

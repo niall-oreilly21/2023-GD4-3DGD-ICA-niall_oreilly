@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: 09cb60bc-fd94-466c-871b-007ea445d199
-  LastUpdated: 04/01/24 03:37:41
+  LastUpdated: 04/01/24 04:04:06
   LastUpdatedBy: 
   Notes: 
   Description: 
@@ -34,8 +34,8 @@ MonoBehaviour:
     languageText: Pepper
   languageDatas:
   - languageType: 1
+    textToSpeech: {fileID: 8300000, guid: ec4440658f192b54d97708109f6f2c07, type: 3}
+    languageText: Poivre
+  - languageType: 2
     textToSpeech: {fileID: 8300000, guid: 6b2ac7919a69a2447a0325ee1a3c6f9a, type: 3}
     languageText: Pimienta
-  - languageType: 2
-    textToSpeech: {fileID: 0}
-    languageText: Poivre

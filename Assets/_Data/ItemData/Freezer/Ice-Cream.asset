@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: 09cb60bc-fd94-466c-871b-007ea445d199
-  LastUpdated: 04/01/24 03:35:03
+  LastUpdated: 04/01/24 04:00:05
   LastUpdatedBy: 
   Notes: 
   Description: 
@@ -34,8 +34,8 @@ MonoBehaviour:
     languageText: Ice-Cream
   languageDatas:
   - languageType: 1
+    textToSpeech: {fileID: 8300000, guid: c626eb2d5845fa64a8e54bbc9095a9e1, type: 3}
+    languageText: Glace
+  - languageType: 2
     textToSpeech: {fileID: 8300000, guid: f2da2dc66a2cac4439abf0989de9eb6d, type: 3}
     languageText: Helado
-  - languageType: 2
-    textToSpeech: {fileID: 0}
-    languageText: Glace

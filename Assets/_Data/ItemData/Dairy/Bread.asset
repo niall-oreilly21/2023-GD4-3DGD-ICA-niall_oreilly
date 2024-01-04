@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: 09cb60bc-fd94-466c-871b-007ea445d199
-  LastUpdated: 04/01/24 03:34:19
+  LastUpdated: 04/01/24 03:58:25
   LastUpdatedBy: 
   Notes: 
   Description: 
@@ -34,8 +34,8 @@ MonoBehaviour:
     languageText: Bread
   languageDatas:
   - languageType: 1
+    textToSpeech: {fileID: 8300000, guid: 54e9e62c75cdc1e429d4cc8d38ed7f4b, type: 3}
+    languageText: Pain
+  - languageType: 2
     textToSpeech: {fileID: 8300000, guid: 80df577bd0531004bac7f6cceb93b15c, type: 3}
     languageText: Pan
-  - languageType: 2
-    textToSpeech: {fileID: 0}
-    languageText: Pain

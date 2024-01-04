@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: 09cb60bc-fd94-466c-871b-007ea445d199
-  LastUpdated: 04/01/24 03:35:25
+  LastUpdated: 04/01/24 04:01:21
   LastUpdatedBy: 
   Notes: 
   Description: 
@@ -34,8 +34,8 @@ MonoBehaviour:
     languageText: Avocado
   languageDatas:
   - languageType: 1
+    textToSpeech: {fileID: 8300000, guid: 192a31441c4d369409ba1f4f7c2e3982, type: 3}
+    languageText: Avocat
+  - languageType: 2
     textToSpeech: {fileID: 8300000, guid: 08a24f7f9496cad4c8073fed2946744c, type: 3}
     languageText: Palta
-  - languageType: 2
-    textToSpeech: {fileID: 0}
-    languageText: Avocat

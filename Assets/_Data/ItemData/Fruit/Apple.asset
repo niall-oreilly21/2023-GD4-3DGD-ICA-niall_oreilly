@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: 929ef529-4d77-4a7d-9048-cc6e34901a25
-  LastUpdated: 04/01/24 03:35:15
+  LastUpdated: 04/01/24 04:00:43
   LastUpdatedBy: 
   Notes: 
   Description: 
@@ -34,8 +34,8 @@ MonoBehaviour:
     languageText: Apple
   languageDatas:
   - languageType: 1
+    textToSpeech: {fileID: 8300000, guid: 2fad24bd5a943094db16054c9b2441d6, type: 3}
+    languageText: Pomme
+  - languageType: 2
     textToSpeech: {fileID: 8300000, guid: 801a7a2bd888ca540a3be810f4ce68bc, type: 3}
     languageText: Manzana
-  - languageType: 2
-    textToSpeech: {fileID: 0}
-    languageText: Pomme

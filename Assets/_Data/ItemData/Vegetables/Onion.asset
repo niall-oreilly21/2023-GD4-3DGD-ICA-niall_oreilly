@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: 09cb60bc-fd94-466c-871b-007ea445d199
-  LastUpdated: 04/01/24 03:37:34
+  LastUpdated: 04/01/24 04:03:39
   LastUpdatedBy: 
   Notes: 
   Description: 
@@ -34,8 +34,8 @@ MonoBehaviour:
     languageText: Onion
   languageDatas:
   - languageType: 1
+    textToSpeech: {fileID: 8300000, guid: fa942ddfebe864b439f4ed2fd1950ac8, type: 3}
+    languageText: Oignon
+  - languageType: 2
     textToSpeech: {fileID: 8300000, guid: 97306ebcf4bbde5408488887cf0463c7, type: 3}
     languageText: Cebolla
-  - languageType: 2
-    textToSpeech: {fileID: 0}
-    languageText: Oignon

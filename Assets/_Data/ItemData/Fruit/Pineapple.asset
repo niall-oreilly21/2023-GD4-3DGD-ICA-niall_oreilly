@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: 09cb60bc-fd94-466c-871b-007ea445d199
-  LastUpdated: 04/01/24 03:36:52
+  LastUpdated: 04/01/24 04:02:37
   LastUpdatedBy: 
   Notes: 
   Description: 
@@ -34,8 +34,8 @@ MonoBehaviour:
     languageText: Pineapple
   languageDatas:
   - languageType: 1
+    textToSpeech: {fileID: 8300000, guid: a195670c0bd56d4439127a72f6d7a98e, type: 3}
+    languageText: Ananas
+  - languageType: 2
     textToSpeech: {fileID: 8300000, guid: 7ec248618016ed749b79eff645b5eedf, type: 3}
     languageText: "Pi\xF1a"
-  - languageType: 2
-    textToSpeech: {fileID: 0}
-    languageText: Ananas

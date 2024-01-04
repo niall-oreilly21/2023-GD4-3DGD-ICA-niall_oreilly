@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: 09cb60bc-fd94-466c-871b-007ea445d199
-  LastUpdated: 04/01/24 03:38:24
+  LastUpdated: 04/01/24 04:04:24
   LastUpdatedBy: 
   Notes: 
   Description: 
@@ -34,8 +34,8 @@ MonoBehaviour:
     languageText: Tomato
   languageDatas:
   - languageType: 1
-    textToSpeech: {fileID: 8300000, guid: 0fe28517c920cf141b32bd5bdc64d3bd, type: 3}
+    textToSpeech: {fileID: 8300000, guid: 2cd5a158d5ae5a946823a924542f81bd, type: 3}
     languageText: Tomate
   - languageType: 2
-    textToSpeech: {fileID: 0}
+    textToSpeech: {fileID: 8300000, guid: 0fe28517c920cf141b32bd5bdc64d3bd, type: 3}
     languageText: Tomate

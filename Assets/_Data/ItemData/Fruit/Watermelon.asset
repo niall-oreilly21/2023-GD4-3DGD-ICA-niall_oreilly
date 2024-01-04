@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: 09cb60bc-fd94-466c-871b-007ea445d199
-  LastUpdated: 04/01/24 03:37:12
+  LastUpdated: 04/01/24 04:03:01
   LastUpdatedBy: 
   Notes: 
   Description: 
@@ -34,8 +34,8 @@ MonoBehaviour:
     languageText: Watermelon
   languageDatas:
   - languageType: 1
+    textToSpeech: {fileID: 8300000, guid: ef13f48d0fdae4e4cbc8237aebea05df, type: 3}
+    languageText: "Past\xE8que"
+  - languageType: 2
     textToSpeech: {fileID: 8300000, guid: 4e2bb5e4895185c43936c1e7d1799769, type: 3}
     languageText: "Sand\xEDa"
-  - languageType: 2
-    textToSpeech: {fileID: 0}
-    languageText: "Past\xE8que"

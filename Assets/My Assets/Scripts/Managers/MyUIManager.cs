@@ -32,6 +32,9 @@ namespace My_Assets.Scripts.Managers
 
         [SerializeField] 
         private GameObject endMenuUI;
+
+        [SerializeField] 
+        private GameObject tutorialText;
         
         public void DisplayShoppingList(List<string> itemsInShoppingList)
         {
@@ -62,6 +65,11 @@ namespace My_Assets.Scripts.Managers
                 DisplayEndMenuCartItem(item.EnglishLanguageData.LanguageText, item.CurrentLanguageToLearnData.LanguageText, item.WordIsToBeTested);
             }
 
+        }
+
+        public void SetTutorialTextState(bool isActive)
+        {
+            tutorialText.SetActive(isActive);
         }
 
         public void UnHideEndScreen()

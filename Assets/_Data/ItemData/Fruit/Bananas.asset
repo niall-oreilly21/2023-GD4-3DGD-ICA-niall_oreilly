@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: b12f78ea-950e-4737-ab83-adf274e06c69
-  LastUpdated: 04/01/24 03:35:34
+  LastUpdated: 04/01/24 04:02:08
   LastUpdatedBy: 
   Notes: 
   Description: 
@@ -34,8 +34,8 @@ MonoBehaviour:
     languageText: Bananas
   languageDatas:
   - languageType: 1
+    textToSpeech: {fileID: 8300000, guid: 9522c3b5b11fe44469f09f061872dcd8, type: 3}
+    languageText: Bananes
+  - languageType: 2
     textToSpeech: {fileID: 8300000, guid: 7eb443be70938554aa14cad2d08a2ad4, type: 3}
     languageText: "Pl\xE1tanos"
-  - languageType: 2
-    textToSpeech: {fileID: 0}
-    languageText: Bananes

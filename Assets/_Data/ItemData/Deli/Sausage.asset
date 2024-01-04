@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: 09cb60bc-fd94-466c-871b-007ea445d199
-  LastUpdated: 04/01/24 03:34:38
+  LastUpdated: 04/01/24 03:59:17
   LastUpdatedBy: 
   Notes: 
   Description: 
@@ -34,8 +34,8 @@ MonoBehaviour:
     languageText: Sausage
   languageDatas:
   - languageType: 1
+    textToSpeech: {fileID: 8300000, guid: a1dc6c04890215a4b9040565c9bd24cc, type: 3}
+    languageText: Saucisse
+  - languageType: 2
     textToSpeech: {fileID: 8300000, guid: 1f764cd7789f4694eaff527c1826af89, type: 3}
     languageText: Embutido
-  - languageType: 2
-    textToSpeech: {fileID: 0}
-    languageText: Saucisse

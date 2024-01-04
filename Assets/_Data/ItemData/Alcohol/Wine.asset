@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: 09cb60bc-fd94-466c-871b-007ea445d199
-  LastUpdated: 04/01/24 03:33:57
+  LastUpdated: 04/01/24 03:56:42
   LastUpdatedBy: 
   Notes: 
   Description: 
@@ -34,8 +34,8 @@ MonoBehaviour:
     languageText: Wine
   languageDatas:
   - languageType: 1
+    textToSpeech: {fileID: 8300000, guid: 482ee774462ac854b8d348680e67deb9, type: 3}
+    languageText: Vin
+  - languageType: 2
     textToSpeech: {fileID: 8300000, guid: becd4cd1bb3cba340924d9eff4249e69, type: 3}
     languageText: Vino
-  - languageType: 2
-    textToSpeech: {fileID: 0}
-    languageText: Vin

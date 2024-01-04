@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: 09cb60bc-fd94-466c-871b-007ea445d199
-  LastUpdated: 04/01/24 03:34:52
+  LastUpdated: 04/01/24 03:59:38
   LastUpdatedBy: 
   Notes: 
   Description: 
@@ -34,8 +34,8 @@ MonoBehaviour:
     languageText: Steak
   languageDatas:
   - languageType: 1
+    textToSpeech: {fileID: 8300000, guid: 47bad90f311c7ae4aa9bc80b712e5bbf, type: 3}
+    languageText: 'Bifteck '
+  - languageType: 2
     textToSpeech: {fileID: 8300000, guid: cb2893995e91b654f9d590151de223c2, type: 3}
     languageText: Bife
-  - languageType: 2
-    textToSpeech: {fileID: 0}
-    languageText: 'Bifteck '

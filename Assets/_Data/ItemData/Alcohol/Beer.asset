@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: 09cb60bc-fd94-466c-871b-007ea445d199
-  LastUpdated: 04/01/24 03:33:47
+  LastUpdated: 04/01/24 03:56:34
   LastUpdatedBy: 
   Notes: 
   Description: 
@@ -34,8 +34,8 @@ MonoBehaviour:
     languageText: Beer
   languageDatas:
   - languageType: 1
+    textToSpeech: {fileID: 8300000, guid: 35cd597f54d6f04499b8d9ef3ce0d08e, type: 3}
+    languageText: "Bi\xE8re"
+  - languageType: 2
     textToSpeech: {fileID: 8300000, guid: 555b5e7b745488d4db7d9146cc90039e, type: 3}
     languageText: Cerveza
-  - languageType: 2
-    textToSpeech: {fileID: 0}
-    languageText: "Bi\xE8re"
