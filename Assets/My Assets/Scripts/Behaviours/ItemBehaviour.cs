@@ -11,25 +11,11 @@ namespace My_Assets.Scripts
     {
         [SerializeField]
         private MultiLingualData multiLingualData;
-        private AudioSource audioSource;
 
         public Vector3 StartPosition;
         
         public MultiLingualData MultiLingualData => multiLingualData;
-
-        private void Start()
-        {
-            audioSource = GetComponent<AudioSource>();
-        }
-
-        public void PlaySound(Enum recordingToPlay)
-        {
-            if (recordingToPlay.Equals(RecordedSoundType.ENGLISH))
-            {
-                audioSource.clip = multiLingualData.EnglishLanguageData.TextToSpeech;
-                audioSource.Play();
-            }
-        }
+        
 
         public void DeleteItem()
         {

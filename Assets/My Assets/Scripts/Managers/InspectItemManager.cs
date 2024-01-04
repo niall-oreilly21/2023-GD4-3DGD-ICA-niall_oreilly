@@ -107,29 +107,17 @@ namespace Third_Party_Assets.Scripts
                 }
             }
         }
-        
-
-        // This method is called when the player starts examining an object. It locks the cursor,
-           // makes it visible, and disables the PlayerInput component to prevent player movement during examination.
-
-        void StartExamination()
-        {
-            inspectItemData.LastMousePosition = Input.mousePosition;
-
-            //Cursor.lockState = CursorLockMode.None;
-            //Cursor.visible = true;
-        }
 
         private void CheckPlayerInput()
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                currentInspectItemBehaviour.PlaySound(RecordedSoundType.ENGLISH);
+                SoundManager.Instance.PlayOneShotSound(currentInspectItemBehaviour.MultiLingualData.EnglishLanguageData.TextToSpeech);
             }
             
             else if (Input.GetKeyDown(KeyCode.S))
             {
-                currentInspectItemBehaviour.PlaySound(RecordedSoundType.FOREIGN_LANGUAGE);
+                SoundManager.Instance.PlayOneShotSound(currentInspectItemBehaviour.MultiLingualData.CurrentLanguageToLearnData.TextToSpeech);
             }
             
             else if (Input.GetKeyDown(KeyCode.V))
@@ -137,15 +125,6 @@ namespace Third_Party_Assets.Scripts
                 currentInspectItemBehaviour.DeleteItem();
                 addToInventoryGameEvent.Raise(currentInspectItemBehaviour.MultiLingualData);
             }
-        }
-
-        //This method is called when the player stops examining an object. It locks the cursor again,
-        //hides it, and re-enables the PlayerInput component to allow player movement.
-
-        void StopExamination()
-        {
-          //Cursor.lockState = CursorLockMode.Locked;
-           //Cursor.visible = false;
         }
     }
 }
