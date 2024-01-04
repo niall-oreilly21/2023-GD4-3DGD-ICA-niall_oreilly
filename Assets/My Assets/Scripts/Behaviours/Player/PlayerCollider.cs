@@ -46,7 +46,7 @@ namespace My_Assets.Scripts.Behaviours
                 buttonEnabled.Raise(false);
             }
         }
-
+        
         // Check if colliding with a specific GameObject
         public void IsCollidingWith(GameObject otherGameObject)
         {
@@ -55,6 +55,5 @@ namespace My_Assets.Scripts.Behaviours
                 isCollidingWithCurrentObject.Value = true;
             }
         }
-
     }
 }
