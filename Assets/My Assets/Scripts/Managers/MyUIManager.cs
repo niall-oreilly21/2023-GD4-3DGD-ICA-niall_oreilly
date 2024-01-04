@@ -46,6 +46,8 @@ namespace My_Assets.Scripts.Managers
         
         public void DisplayShoppingList(List<string> itemsInShoppingList)
         {
+            itemsInShoppingList.Sort();
+            
             foreach (string item in itemsInShoppingList)
             {
                 GameObject obj = Instantiate(shoppingListUIComponent.UiItem, shoppingListUIComponent.ItemContent);

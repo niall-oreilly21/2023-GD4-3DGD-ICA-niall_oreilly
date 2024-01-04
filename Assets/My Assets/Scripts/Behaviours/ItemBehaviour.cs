@@ -7,15 +7,13 @@ using UnityEngine.Serialization;
 
 namespace My_Assets.Scripts
 {
+    
     public class ItemBehaviour : MonoBehaviour
     {
         [SerializeField]
         private MultiLingualData multiLingualData;
 
-        public Vector3 StartPosition;
-        
         public MultiLingualData MultiLingualData => multiLingualData;
-        
 
         public void DeleteItem()
         {

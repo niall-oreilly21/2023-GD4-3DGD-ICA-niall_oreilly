@@ -15,8 +15,8 @@ namespace My_Assets.Scripts.Managers
 
         private void Start()
         {
-            levelPreferencesData.CountOfWordsToLearn = 0;
-            levelPreferencesData.CountOfWordsToTest = 2;
+            levelPreferencesData.CountOfWordsToLearn = 15;
+            levelPreferencesData.CountOfWordsToTest = 15;
             levelPreferencesData.Language = LanguageType.Spanish;
         }
 
@@ -31,7 +31,7 @@ namespace My_Assets.Scripts.Managers
                 
                 itemBehaviour.MultiLingualData.SetCurrentLanguageToLearnData(levelPreferencesData.Language);
                 multiLingualDataList.Add(itemBehaviour.MultiLingualData);
-                Instantiate(prefab, itemBehaviour.StartPosition, Quaternion.identity);
+                Instantiate(prefab);
             }
         }
         
@@ -39,8 +39,7 @@ namespace My_Assets.Scripts.Managers
         {
             if (itemPrefabDictionary.Prefabs.TryGetValue(itemToAdd, out GameObject prefab))
             {
-                Vector3 startPosition = prefab.GetComponent<ItemBehaviour>().StartPosition;
-                Instantiate(prefab, startPosition, Quaternion.identity);
+                Instantiate(prefab);
             }
         }
     }
