@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1477952d12f4af3b7e771b4c21d67ef, type: 3}
+  m_Name: Apple
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  UniqueId: 929ef529-4d77-4a7d-9048-cc6e34901a25
+  LastUpdated: 04/01/24 03:35:15
+  LastUpdatedBy: 
+  Notes: 
+  Description: 
+  Type: 13
+  icon: {fileID: 0}
+  englishLanguageData:
+    languageType: 0
+    textToSpeech: {fileID: 8300000, guid: ab20ab50d9b91be459e54c1d8d12d1d7, type: 3}
+    languageText: Apple
+  languageDatas:
+  - languageType: 1
+    textToSpeech: {fileID: 8300000, guid: 801a7a2bd888ca540a3be810f4ce68bc, type: 3}
+    languageText: Manzana
+  - languageType: 2
+    textToSpeech: {fileID: 0}
+    languageText: Pomme

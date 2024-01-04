@@ -6,6 +6,10 @@
     /// <see cref="Objects.BaseObjectData"/>
     public enum ItemType : sbyte
     {
-        Building, Equipment, Food, Medicine, NPC, Player, Story, Weapon
+        Building, Equipment, Food, Medicine, NPC, Player, Story, Weapon, 
+        
+        //Multi-Lingual item categories
+        Alcohol, Candy, Dairy, Deli, Freezer, Fruit, Vegetables
+        
     }
 }

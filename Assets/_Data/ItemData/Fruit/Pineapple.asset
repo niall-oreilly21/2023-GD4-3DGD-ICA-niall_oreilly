@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1477952d12f4af3b7e771b4c21d67ef, type: 3}
-  m_Name: Apple
+  m_Name: Pineapple
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,17 +21,21 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  UniqueId: 929ef529-4d77-4a7d-9048-cc6e34901a25
-  LastUpdated: 02/01/24 13:11:20
+  UniqueId: 09cb60bc-fd94-466c-871b-007ea445d199
+  LastUpdated: 04/01/24 03:36:52
   LastUpdatedBy: 
   Notes: 
   Description: 
-  Type: 0
+  Type: 13
+  icon: {fileID: 21300100, guid: 37607ec1aab56e349af84a980f685a4b, type: 3}
   englishLanguageData:
     languageType: 0
-    textToSpeech: {fileID: 0}
-    languageText: Banana
+    textToSpeech: {fileID: 8300000, guid: 3cea62977516265438b0e4dbf6f89bc4, type: 3}
+    languageText: Pineapple
   languageDatas:
+  - languageType: 1
+    textToSpeech: {fileID: 8300000, guid: 7ec248618016ed749b79eff645b5eedf, type: 3}
+    languageText: "Pi\xF1a"
   - languageType: 2
     textToSpeech: {fileID: 0}
-    languageText: ERERE
+    languageText: Ananas

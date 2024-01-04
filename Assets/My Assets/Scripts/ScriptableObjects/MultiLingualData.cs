@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using GD;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -9,6 +10,11 @@ namespace My_Assets.Scripts.ScriptableObjects
     [CreateAssetMenu(fileName = "GameLevel", menuName = "DkIT/Scriptable Objects/Game/Language", order = 4)]
     public class MultiLingualData : BaseObjectData
     {
+        [SerializeField]
+        [Tooltip("Defines the icon of the object")]
+        [Searchable]
+        private Sprite icon;
+        
         [SerializeField]
         [Tooltip("Defines the English text and speech object")]
         private LanguageData englishLanguageData;
@@ -20,6 +26,7 @@ namespace My_Assets.Scripts.ScriptableObjects
         private LanguageData currentLanguageToLearnData;
         private bool wordIsToBeTested;
         
+        public Sprite Icon => icon;
         public LanguageData EnglishLanguageData => englishLanguageData;
         public LanguageData CurrentLanguageToLearnData => currentLanguageToLearnData;
 
