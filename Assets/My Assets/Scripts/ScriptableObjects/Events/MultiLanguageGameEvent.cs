@@ -8,6 +8,6 @@ namespace My_Assets.Scripts
         menuName = "DkIT/Scriptable Objects/Events/MultiLingualObject")]
     public class MultiLanguageGameEvent :BaseGameEvent<MultiLingualData>
     {
-
+    
     }
 }
