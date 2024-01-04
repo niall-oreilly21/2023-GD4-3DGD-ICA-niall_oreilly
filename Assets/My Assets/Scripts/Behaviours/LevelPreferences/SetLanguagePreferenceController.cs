@@ -10,10 +10,13 @@ namespace My_Assets.Scripts.Behaviours
     {
         [SerializeField]
         private LevelPreferencesData  levelPreferencesData;
+        
+        [SerializeField] 
+        private LanguageDictionary languageDictionary;
 
         [SerializeField]
         private List<LanguageToggleData> toggles;
-        
+
         private LanguageToggleData currentToggle;
 
         private void Start()
@@ -23,7 +26,7 @@ namespace My_Assets.Scripts.Behaviours
         
         public void SetLanguageToLearn(string languageToLearn)
         {
-            var languagesToLearnType = languageToLearn.Equals("Spanish") ? LanguageType.Spanish : LanguageType.French;
+            var languagesToLearnType = languageDictionary.GetCurrentLanguageLabel(languageToLearn);
             
             if (currentToggle.Language.Equals(languagesToLearnType))
             {

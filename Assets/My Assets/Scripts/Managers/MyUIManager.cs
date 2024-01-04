@@ -35,6 +35,14 @@ namespace My_Assets.Scripts.Managers
 
         [SerializeField] 
         private GameObject tutorialText;
+
+        [SerializeField] 
+        private GameObject promptText;
+
+        [SerializeField] 
+        private LanguageDictionary languageDictionary;
+
+        private string currentLanguageToLearn;
         
         public void DisplayShoppingList(List<string> itemsInShoppingList)
         {
@@ -70,6 +78,16 @@ namespace My_Assets.Scripts.Managers
         public void SetTutorialTextState(bool isActive)
         {
             tutorialText.SetActive(isActive);
+        }
+
+        public void SetCurrentLanguage(LanguageType languageTypeToLearn)
+        {
+            currentLanguageToLearn = languageDictionary.GetCurrentLanguageLabel(languageTypeToLearn);
+        }
+        
+        public void SetPromptText()
+        {
+            promptText.GetComponent<TextMeshProUGUI>().SetText("To Play " + currentLanguageToLearn);
         }
 
         public void UnHideEndScreen()
