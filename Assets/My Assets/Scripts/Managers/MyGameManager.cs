@@ -62,6 +62,8 @@ namespace My_Assets.Scripts.Managers
                 shoppingList.Add(multiLingualData.CurrentLanguageToLearnData.LanguageText);
             }
             
+            MyUIManager.Instance.SetCurrentLanguage(LanguageType.French);
+            MyUIManager.Instance.SetPromptText();
             MyUIManager.Instance.DisplayShoppingList(shoppingList);
 
             if (levelPreferencesData.TutorialSelected)

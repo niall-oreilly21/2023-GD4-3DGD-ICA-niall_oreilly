@@ -37,7 +37,7 @@ namespace My_Assets.Scripts.Managers
         private GameObject tutorialText;
 
         [SerializeField] 
-        private GameObject promptText;
+        private TextMeshProUGUI promptText;
 
         [SerializeField] 
         private LanguageDictionary languageDictionary;
@@ -87,7 +87,7 @@ namespace My_Assets.Scripts.Managers
         
         public void SetPromptText()
         {
-            promptText.GetComponent<TextMeshProUGUI>().SetText("To Play " + currentLanguageToLearn);
+            promptText.SetText("To Play " + currentLanguageToLearn);
         }
 
         public void UnHideEndScreen()
