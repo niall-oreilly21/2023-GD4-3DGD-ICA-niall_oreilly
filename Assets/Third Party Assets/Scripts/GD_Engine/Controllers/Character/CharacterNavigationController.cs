@@ -104,7 +104,7 @@ namespace GD.Controllers
         /// <summary>
         /// Tests if selector ray intersects with valid destination target
         /// </summary>
-        protected virtual void ClickDestination()
+        private void ClickDestination()
         {
             selector.Check(rayProvider.CreateRay());
 
@@ -125,7 +125,7 @@ namespace GD.Controllers
         {
             waypointPrefab.SetActive(true);
             waypointPrefab.transform.SetParent(sceneAnchor.transform);
-            waypointPrefab.transform.position = navMeshAgent.destination;
+            waypointPrefab.transform.parent.position = navMeshAgent.destination;
         }
 
         /// <summary>
