@@ -15,7 +15,7 @@ namespace My_Assets.Scripts.Managers
 
         private void Start()
         {
-            levelPreferencesData.CountOfWordsToLearn = 2;
+            levelPreferencesData.CountOfWordsToLearn = 0;
             levelPreferencesData.CountOfWordsToTest = 2;
             levelPreferencesData.Language = LanguageType.Spanish;
         }

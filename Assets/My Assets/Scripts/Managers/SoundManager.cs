@@ -12,19 +12,11 @@ namespace My_Assets.Scripts.Managers
         [SerializeField] 
         private AudioClip gameBacktrackAudio;
         
-        [SerializeField] 
         private AudioSource[] audioSources;
-
         private bool isMenuAudioPlaying;
 
         private void Start()
         {
-            if (isInitialised.Value)
-            {
-                return;
-            }
-            
-            isInitialised.Value = true;
             isMenuAudioPlaying = false;
             audioSources = GetComponents<AudioSource>();
             if (audioSources == null || audioSources.Length < 2)
@@ -33,6 +25,12 @@ namespace My_Assets.Scripts.Managers
                 return;
             }
             
+            if (isInitialised.Value)
+            {
+                return;
+            }
+            
+            isInitialised.Value = true;
             SwitchMenuAudio();
         }
 
