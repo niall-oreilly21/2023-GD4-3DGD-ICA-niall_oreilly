@@ -20,7 +20,7 @@ namespace My_Assets.Scripts.ScriptableObjects
             {
                 if (itemsAdded < countItemsToAdd)
                 {
-                    Prefabs.TryAdd(prefab.name, prefab);
+                    Prefabs.TryAdd(prefab.name.Replace("WithBehaviour", ""), prefab);
                     itemsAdded++;
                 }
                 else

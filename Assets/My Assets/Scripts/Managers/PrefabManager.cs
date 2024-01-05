@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using GD;
+using My_Assets.Scripts.Enums;
 using My_Assets.Scripts.ScriptableObjects;
 using UnityEngine;
 
