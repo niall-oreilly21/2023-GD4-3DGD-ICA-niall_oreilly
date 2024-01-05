@@ -34,8 +34,6 @@ namespace My_Assets.Scripts.Managers
             {
                 multiLingualData.WordIsToBeTested = false;
             }
-
-            levelPreferencesData.ResetLevelPreferences();
         }
 
         private void StartLevel()
@@ -52,7 +50,7 @@ namespace My_Assets.Scripts.Managers
             {
                 endMenuTutorialButton.SetText("Play Game");
             }
-            MyUIManager.Instance.DisplayEndMenu(multiLingualDataList.Except(inventory.Contents.Values).ToList(), levelPreferencesData.CountOfWordsToLearn);
+            MyUIManager.Instance.DisplayEndMenu(multiLingualDataList.Except(inventory.Contents.Values).ToList(), levelPreferencesData.CountOfWordsToTest);
             isPaused = true;
         }
 
@@ -67,6 +65,7 @@ namespace My_Assets.Scripts.Managers
             }
             else
             {
+                levelPreferencesData.ResetLevelPreferences();
                 SceneTransitionManager.Instance.LoadMainMenu();
             }
         }
@@ -89,6 +88,11 @@ namespace My_Assets.Scripts.Managers
         {
             FisherYatesAlgorithm.ShuffleList(multiLingualDataList);
             multiLingualDataList = multiLingualDataList.Take(levelPreferencesData.CountOfWordsToTest).ToList();
+
+            foreach (var multiLingualData in multiLingualDataList)
+            {
+                multiLingualData.WordIsToBeTested = true;
+            }
         }
 
         private void Update()

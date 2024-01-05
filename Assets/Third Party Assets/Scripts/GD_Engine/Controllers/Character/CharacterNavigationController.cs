@@ -30,6 +30,9 @@ namespace GD.Controllers
         [SerializeField]
         [Tooltip("A scriptable object which holds a reference to the currently selected character")]
         private GameObjectVariable currentlySelectedGameObject;
+        
+        [SerializeField]
+        private RayCastSelector player;
 
         protected Animator animator;
         private NavMeshAgent navMeshAgent;
@@ -151,20 +154,26 @@ namespace GD.Controllers
 
         #region OLD INPUT - Selection
 
-        private void OnMouseDown()
+        private void ClickLeftMouse()
         {
-            if (currentlySelectedGameObject.Value != null
-                && currentlySelectedGameObject.Value != gameObject)
+            player.Check(rayProvider.CreateRay());
+            
+            if (player.GetSelection() != null && Input.GetMouseButtonDown(0))
             {
-                currentlySelectedGameObject.Value = null;
-                SetSelected(false);
+                if (currentlySelectedGameObject.Value != null
+                    && currentlySelectedGameObject.Value != gameObject)
+                {
+                    currentlySelectedGameObject.Value = null;
+                    SetSelected(false);
+                }
+                SetSelected(true);
+                currentlySelectedGameObject.Value = gameObject;
             }
-            SetSelected(true);
-            currentlySelectedGameObject.Value = gameObject;
         }
 
         protected void Update()
         {
+            ClickLeftMouse();
             if (Input.GetMouseButtonDown(1) && isSelected)
             {
                 ClickDestination();
@@ -177,7 +186,9 @@ namespace GD.Controllers
                 SetAnimationWhenReachedDestination();
             }
         }
-
+        
+        #endregion OLD INPUT - Selection
+        
         protected virtual void SetAnimationWhenReachedDestination()
         {
             
@@ -187,7 +198,5 @@ namespace GD.Controllers
         {
             
         }
-
-        #endregion OLD INPUT - Selection
     }
 }

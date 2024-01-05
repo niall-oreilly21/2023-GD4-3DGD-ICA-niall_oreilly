@@ -8,15 +8,15 @@ namespace My_Assets.Scripts.ScriptableObjects
     public class LevelPreferencesData : BaseObjectData
     {
         private LanguageType language = LanguageType.Spanish;
-        private int countOfWordsToLearn = 0;
-        private int countOfWordsToTest = 0;
+        private int countOfWordsToLearn = 1;
+        private int countOfWordsToTest = 1;
         private bool tutorialSelected = false;
 
         public void ResetLevelPreferences()
         {
             language = LanguageType.Spanish;
-            countOfWordsToTest = 0;
-            countOfWordsToLearn = 0;
+            countOfWordsToTest = 1;
+            countOfWordsToLearn = 1;
         }
 
         #region Properties

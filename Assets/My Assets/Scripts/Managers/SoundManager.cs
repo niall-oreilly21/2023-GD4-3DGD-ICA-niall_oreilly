@@ -15,7 +15,6 @@ namespace My_Assets.Scripts.Managers
         
         private AudioSource[] audioSources;
         private bool isMenuAudioPlaying;
-        private bool setIsInitialised = true;
 
         private void Start()
         {
@@ -27,14 +26,6 @@ namespace My_Assets.Scripts.Managers
                 return;
             }
 
-            if (setIsInitialised)
-            {
-                isInitialised.Value = false;
-            }
-
-            setIsInitialised = false;
-
-            
             if (isInitialised.Value)
             {
                 return;
@@ -42,6 +33,11 @@ namespace My_Assets.Scripts.Managers
 
             isInitialised.Value = true;
             SwitchMenuAudio();
+        }
+
+        private void OnDisable()
+        {
+            isInitialised.Value = false;
         }
 
 

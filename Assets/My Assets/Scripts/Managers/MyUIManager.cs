@@ -82,7 +82,7 @@ namespace My_Assets.Scripts.Managers
 
         public void DisplayEndMenu(List<MultiLingualData> itemsNotInInventory, int totalWordsToLearn)
         {
-            int endScore =DisplayInventoryEndCart();
+            int endScore = DisplayInventoryEndCart();
             DisplayItemsNotInInventory(itemsNotInInventory);
             UpdateScoreText(endScore, totalWordsToLearn);
             UnHideEndScreen();

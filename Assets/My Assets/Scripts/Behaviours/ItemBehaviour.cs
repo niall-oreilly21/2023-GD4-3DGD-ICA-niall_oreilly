@@ -54,25 +54,25 @@ public class ItemBehaviour : MonoBehaviour
 
     public void StartScaleTween()
     {
-        currentBoxCollider.size = new Vector3(1, 1, 1);
+        currentBoxCollider.size = new Vector3(0.5f, 0.5f, 0.5f);
         // Reset the scale to the starting scale (optional)
         transform.localScale = new Vector3(startScale, startScale, startScale);
-
+        
         // Use DOTween to tween the object's scale
         scaleTweenSequence = DOTween.Sequence();
         scaleTweenSequence.Append(transform.DOScale(targetScale, tweenDuration * 0.5f).SetEase(Ease.OutQuad));
         scaleTweenSequence.Join(material.DOColor(Color.yellow * 2, "_EmissionColor", tweenDuration * 0.5f));
-
+        
         scaleTweenSequence.Append(transform.DOScale(startScale, tweenDuration * 0.5f).SetEase(Ease.InQuad));
         scaleTweenSequence.Join(material.DOColor(Color.black, "_EmissionColor", tweenDuration * 0.5f));
-
+        
         // Infinite loop (grows and shrinks continuously)
         scaleTweenSequence.SetLoops(-1);
     }
 
     public void StopScaleTween()
     {
-        currentBoxCollider.size = new Vector3(0.4f, 0.4f, 0.4f);
+        currentBoxCollider.size = new Vector3(0.5f, 0.5f, 0.5f);
         if (scaleTweenSequence != null && scaleTweenSequence.IsActive())
         {
             scaleTweenSequence.Kill();

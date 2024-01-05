@@ -40,6 +40,9 @@ namespace Third_Party_Assets.Scripts
         private BoolGameEvent togglePromptTextGameEvent;
             
         private ItemBehaviour currentInspectItemBehaviour;
+        
+        [SerializeField]
+        private StringGameEvent setTutorialTextGameEvent;
 
         private void Start()
         {
@@ -71,15 +74,28 @@ namespace Third_Party_Assets.Scripts
                     //StartExamination();
                     togglePromptTextGameEvent.Raise(false);
                     examineCanvas.SetActive(true);
-                    
+
                     if (!levelPreferencesData.TutorialSelected)
                     {
                         englishText.SetActive(false);
                     }
+
+                    if (levelPreferencesData.TutorialSelected)
+                    {
+                        setTutorialTextGameEvent.Raise(currentInspectItemBehaviour.MultiLingualData.EnglishLanguageData.LanguageText + ":" + "\n" +
+                                                       currentInspectItemBehaviour.MultiLingualData.CurrentLanguageToLearnData.LanguageText);
+                    }
+                    
                 }
                 else
                 {
-                    NonExamine(); 
+                    NonExamine();
+
+                    if (levelPreferencesData.TutorialSelected)
+                    {
+                        setTutorialTextGameEvent.Raise("");
+                    }
+
                     //StopExamination();
                     examineCanvas.SetActive(false);
                 }
