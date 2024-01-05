@@ -1,4 +1,5 @@
 using GD;
+using My_Assets.Scripts.Enums;
 using UnityEngine;
 
 namespace My_Assets.Scripts.ScriptableObjects

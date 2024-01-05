@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class PlayerContoller : CharacterNavigationController
 {
+    private const string IS_RUNNING = "isRunning";
 
-        private static readonly string IS_RUNNING = "isRunning";
-        
-        protected override void SetAnimationWhenGoingToDestination()
+    protected override void SetAnimationWhenGoingToDestination()
     {
         animator.SetBool(IS_RUNNING, true);
     }

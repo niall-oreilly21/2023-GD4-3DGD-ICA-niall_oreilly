@@ -3,14 +3,20 @@ using UnityEngine;
 
 namespace My_Assets.Scripts.Behaviours.Timer
 {
+    /// <summary>
+    /// Abstract base class for timer behaviors, handling countdown logic.
+    /// </summary>
     public abstract class TimerBehaviour : MonoBehaviour
     {
+        #region Fields
         [SerializeField] 
+        [Tooltip("Event triggered when the timer completes.")]
         protected GameEvent timerEndEvent;
         
         private float totalSeconds;
         protected float totalTime;
         private float elapsedTime;
+        #endregion
 
         protected virtual void Update()
         {

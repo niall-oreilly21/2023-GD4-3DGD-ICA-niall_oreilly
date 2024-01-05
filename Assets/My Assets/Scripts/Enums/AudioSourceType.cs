@@ -1,8 +1,8 @@
-using GD;
-using UnityEditor;
-
-namespace My_Assets.Scripts
+namespace My_Assets.Scripts.Enums
 {
+    /// <summary>
+    /// Enum representing different types of audio sources.
+    /// </summary>
     public enum AudioSourceType
     {
         Background,

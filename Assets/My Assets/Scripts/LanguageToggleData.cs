@@ -1,4 +1,5 @@
 using System;
+using My_Assets.Scripts.Enums;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;

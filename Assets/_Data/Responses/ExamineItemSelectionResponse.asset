@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d8089f96294479489a11bfe1f67b624, type: 3}
   m_Name: ExamineItemSelectionResponse
   m_EditorClassIdentifier: 
-  examineObject: {fileID: 11400000, guid: 7a088d5eb7a203643ac627b1525fe3f6, type: 2}
+  examineObjectGameEvent: {fileID: 11400000, guid: 7a088d5eb7a203643ac627b1525fe3f6, type: 2}
   checkInRange: {fileID: 11400000, guid: 90059c932721758499572c76e74b0dc6, type: 2}
   isCollidingWithCurrentObject: {fileID: 11400000, guid: e6ed397b6818b6143a442eb02b690af9, type: 2}
+  togglePromptTextGameEvent: {fileID: 11400000, guid: 9872cc1e2dff8ab4b89e52f21617286b, type: 2}
   inspectItemData: {fileID: 11400000, guid: f7281c68dd9f0f44ca5fe02db65bf398, type: 2}

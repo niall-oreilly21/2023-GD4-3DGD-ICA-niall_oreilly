@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using GD;
+using My_Assets.Scripts.Enums;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
