@@ -18,7 +18,6 @@ namespace My_Assets.Scripts.Managers
         {
             levelPreferencesData.CountOfWordsToLearn = 15;
             levelPreferencesData.CountOfWordsToTest = 15;
-            levelPreferencesData.Language = LanguageType.Spanish;
         }
 
         public void LoadPrefabs(List<MultiLingualData> multiLingualDataList)

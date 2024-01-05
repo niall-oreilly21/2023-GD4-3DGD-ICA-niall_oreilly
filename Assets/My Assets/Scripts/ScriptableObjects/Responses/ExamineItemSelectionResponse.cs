@@ -27,10 +27,10 @@ namespace My_Assets.Scripts.ScriptableObjects
         
             public void OnDeselect(Transform selection)
             {
-                togglePromptTextGameEvent.Raise(false);
                 if (!inspectItemData.IsExamining)
                 {
                     isCollidingWithCurrentObject.Value = false;
+                    togglePromptTextGameEvent.Raise(false);
                 }
             }
             public void OnSelect(Transform selection)
@@ -39,7 +39,11 @@ namespace My_Assets.Scripts.ScriptableObjects
 
                 if (isCollidingWithCurrentObject.Value)
                 {
-                    togglePromptTextGameEvent.Raise(true);
+                    if (!inspectItemData.IsExamining)
+                    {
+                        togglePromptTextGameEvent.Raise(true);
+                    }
+                    
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         examineObjectGameEvent.Raise(selection.gameObject);

@@ -4,6 +4,7 @@ using My_Assets.Scripts.ScriptableObjects;
 using UnityEngine;
 using GD;
 using My_Assets.Scripts.Enums;
+using TMPro;
 
 namespace My_Assets.Scripts.Managers
 {
@@ -14,6 +15,9 @@ namespace My_Assets.Scripts.Managers
 
         [SerializeField] 
         private Inventory inventory;
+
+        [SerializeField] 
+        private TextMeshProUGUI endMenuTutorialButton;
         
         private List<MultiLingualData> multiLingualDataList;
         private bool isPaused;
@@ -44,6 +48,10 @@ namespace My_Assets.Scripts.Managers
 
         public void EndLevel()
         {
+            if (levelPreferencesData.TutorialSelected)
+            {
+                endMenuTutorialButton.SetText("Play Game");
+            }
             MyUIManager.Instance.DisplayEndMenu(multiLingualDataList.Except(inventory.Contents.Values).ToList(), levelPreferencesData.CountOfWordsToLearn);
             isPaused = true;
         }
@@ -51,7 +59,16 @@ namespace My_Assets.Scripts.Managers
         public void LoadMainMenu()
         {
             SoundManager.Instance.SwitchMenuAudio();
-            SceneTransitionManager.Instance.LoadMainMenu();
+            
+            if (levelPreferencesData.TutorialSelected)
+            {
+                levelPreferencesData.TutorialSelected = false;
+                SceneTransitionManager.Instance.LoadGame();
+            }
+            else
+            {
+                SceneTransitionManager.Instance.LoadMainMenu();
+            }
         }
         
         private void SetUpUI()
@@ -62,14 +79,10 @@ namespace My_Assets.Scripts.Managers
                 shoppingList.Add(multiLingualData.CurrentLanguageToLearnData.LanguageText);
             }
             
-            MyUIManager.Instance.SetCurrentLanguage(LanguageType.French);
+            MyUIManager.Instance.SetCurrentLanguage(levelPreferencesData.Language);
             MyUIManager.Instance.SetPromptText();
             MyUIManager.Instance.DisplayShoppingList(shoppingList);
-
-            if (levelPreferencesData.TutorialSelected)
-            {
-                MyUIManager.Instance.SetTutorialTextState(true);
-            }
+            MyUIManager.Instance.SetTutorialTextState(levelPreferencesData.TutorialSelected);
         }
 
         private void SetUpMultiLingualDataList()

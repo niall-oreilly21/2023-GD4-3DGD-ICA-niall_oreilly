@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using GD.Controllers;
-using UnityEngine;
 
 public class PlayerContoller : CharacterNavigationController
 {

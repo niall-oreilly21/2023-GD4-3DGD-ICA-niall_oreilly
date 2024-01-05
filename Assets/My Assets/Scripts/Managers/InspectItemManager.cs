@@ -6,6 +6,7 @@ using GD;
 using My_Assets.Scripts;
 using My_Assets.Scripts.Managers;
 using My_Assets.Scripts.ScriptableObjects;
+using My_Assets.Scripts.ScriptableObjects.Events;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -24,10 +25,19 @@ namespace Third_Party_Assets.Scripts
 
         [SerializeField]
         [Tooltip("The Canvas used for examination UI (alternative reference).")]
-        private Canvas examineCanvas;
+        private GameObject examineCanvas;
+
+        [SerializeField] 
+        private GameObject englishText;
+        
+        [SerializeField]
+        private LevelPreferencesData levelPreferencesData;
 
         [SerializeField]
         private MultiLanguageGameEvent addToInventoryGameEvent;
+
+        [SerializeField] 
+        private BoolGameEvent togglePromptTextGameEvent;
             
         private ItemBehaviour currentInspectItemBehaviour;
 
@@ -58,17 +68,22 @@ namespace Third_Party_Assets.Scripts
                 {
                     Examine(); 
                     //StartExamination();
-                    examineCanvas.enabled = true;
+                    togglePromptTextGameEvent.Raise(false);
+                    examineCanvas.SetActive(true);
+                    
+                    if (!levelPreferencesData.TutorialSelected)
+                    {
+                        englishText.SetActive(false);
+                    }
                 }
                 else
                 {
                     NonExamine(); 
                     //StopExamination();
-                    examineCanvas.enabled = false;
+                    examineCanvas.SetActive(false);
                 }
         }
-        
-        
+
         void Examine()
         {
             if (inspectItemData.ExaminedObject != null)
@@ -104,20 +119,24 @@ namespace Third_Party_Assets.Scripts
 
         private void CheckPlayerInput()
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (levelPreferencesData.TutorialSelected)
             {
-                SoundManager.Instance.PlayOneShotSound(currentInspectItemBehaviour.MultiLingualData.EnglishLanguageData.TextToSpeech);
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    SoundManager.Instance.PlayOneShotSound(currentInspectItemBehaviour.MultiLingualData.EnglishLanguageData.TextToSpeech);
+                }
             }
-            
-            else if (Input.GetKeyDown(KeyCode.S))
+
+            if (Input.GetKeyDown(KeyCode.W))
             {
                 SoundManager.Instance.PlayOneShotSound(currentInspectItemBehaviour.MultiLingualData.CurrentLanguageToLearnData.TextToSpeech);
             }
             
-            else if (Input.GetKeyDown(KeyCode.V))
+            else if (Input.GetKeyDown(KeyCode.A))
             {
                 currentInspectItemBehaviour.DeleteItem();
                 addToInventoryGameEvent.Raise(currentInspectItemBehaviour.MultiLingualData);
+                inspectItemData.ToggleExamination();
             }
         }
     }

@@ -19,10 +19,7 @@ namespace My_Assets.Scripts.Managers
         
         [SerializeField]
         private UIComponent inventoryUIComponent;
-        
-        [SerializeField]
-        private UIComponent cartUIComponent;
-        
+
         [SerializeField]
         private MultiUIComponent endMenuInventoryUIComponent;
 
@@ -57,7 +54,6 @@ namespace My_Assets.Scripts.Managers
         private TextMeshProUGUI endScoreText;
 
         private string currentLanguageToLearn;
-        
         
         public void DisplayShoppingList(List<string> itemsInShoppingList)
         {
