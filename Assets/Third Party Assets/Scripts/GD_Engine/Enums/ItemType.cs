@@ -9,7 +9,6 @@
         Building, Equipment, Food, Medicine, NPC, Player, Story, Weapon, 
         
         //Multi-Lingual item categories
-        Alcohol, Candy, Dairy, Deli, Freezer, Fruit, Vegetables
-        
+        Alcohol, Candy, Dairy, Deli, Freezer, Fruit, Vegetables, Detergents
     }
 }

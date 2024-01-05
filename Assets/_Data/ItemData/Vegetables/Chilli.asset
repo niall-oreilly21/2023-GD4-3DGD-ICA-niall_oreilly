@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1477952d12f4af3b7e771b4c21d67ef, type: 3}
-  m_Name: Beer
+  m_Name: Chilli
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -22,20 +22,20 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: 09cb60bc-fd94-466c-871b-007ea445d199
-  LastUpdated: 05/01/24 20:21:40
+  LastUpdated: 05/01/24 20:32:35
   LastUpdatedBy: 
   Notes: 
   Description: 
-  Type: 8
-  icon: {fileID: 21300010, guid: 37607ec1aab56e349af84a980f685a4b, type: 3}
+  Type: 14
+  icon: {fileID: 21300044, guid: 37607ec1aab56e349af84a980f685a4b, type: 3}
   englishLanguageData:
     languageType: 0
-    textToSpeech: {fileID: 8300000, guid: 3855d5b80f7306b459300da881e22072, type: 3}
-    languageText: Beer
+    textToSpeech: {fileID: 8300000, guid: a3d85137eed4b13469275c3edbeec425, type: 3}
+    languageText: Chilli
   languageDatas:
   - languageType: 1
-    textToSpeech: {fileID: 8300000, guid: 35cd597f54d6f04499b8d9ef3ce0d08e, type: 3}
-    languageText: "Bi\xE8re"
+    textToSpeech: {fileID: 8300000, guid: cb9979a08a129e048b8f62463fa83238, type: 3}
+    languageText: Chile
   - languageType: 2
-    textToSpeech: {fileID: 8300000, guid: 555b5e7b745488d4db7d9146cc90039e, type: 3}
-    languageText: Cerveza
+    textToSpeech: {fileID: 8300000, guid: a178d8bdf4a9ae440b4183a19c67cfd9, type: 3}
+    languageText: Chile

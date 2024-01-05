@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1477952d12f4af3b7e771b4c21d67ef, type: 3}
-  m_Name: Beer
+  m_Name: Burger
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -22,20 +22,20 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: 09cb60bc-fd94-466c-871b-007ea445d199
-  LastUpdated: 05/01/24 20:21:40
+  LastUpdated: 05/01/24 20:30:57
   LastUpdatedBy: 
   Notes: 
   Description: 
-  Type: 8
-  icon: {fileID: 21300010, guid: 37607ec1aab56e349af84a980f685a4b, type: 3}
+  Type: 11
+  icon: {fileID: 21300028, guid: 37607ec1aab56e349af84a980f685a4b, type: 3}
   englishLanguageData:
     languageType: 0
-    textToSpeech: {fileID: 8300000, guid: 3855d5b80f7306b459300da881e22072, type: 3}
-    languageText: Beer
+    textToSpeech: {fileID: 8300000, guid: 6bb0f4f5b3d8c564f8c98bbd4d6fa737, type: 3}
+    languageText: Burger
   languageDatas:
   - languageType: 1
-    textToSpeech: {fileID: 8300000, guid: 35cd597f54d6f04499b8d9ef3ce0d08e, type: 3}
-    languageText: "Bi\xE8re"
+    textToSpeech: {fileID: 8300000, guid: 052b2c476bdd87f44a201350547ea499, type: 3}
+    languageText: Hamburger
   - languageType: 2
-    textToSpeech: {fileID: 8300000, guid: 555b5e7b745488d4db7d9146cc90039e, type: 3}
-    languageText: Cerveza
+    textToSpeech: {fileID: 8300000, guid: 28d5b0b82af343b4b801fac95b135ea1, type: 3}
+    languageText: Hamburguesa

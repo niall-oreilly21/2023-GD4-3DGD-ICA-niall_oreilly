@@ -121,8 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44f03d1f8bfc42598720fb535cb04b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiLingualData: {fileID: 0}
-  targetTransform:
-    Position: {x: 0, y: 0, z: 0}
-    Rotation: {x: 0, y: 0, z: 0}
-    Scale: {x: 0, y: 0, z: 0}
+  startScale: 1
+  targetScale: 0.5
+  tweenDuration: 1
+  multiLingualData: {fileID: 11400000, guid: 1de16cfdb56318441bcca97bb1537b62, type: 2}

@@ -100,11 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44f03d1f8bfc42598720fb535cb04b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiLingualData: {fileID: 0}
-  targetTransform:
-    Position: {x: -10.31, y: 1.63, z: -47.8}
-    Rotation: {x: 0, y: 0, z: 0}
-    Scale: {x: 7, y: 7, z: 7}
+  startScale: 1
+  targetScale: 0.5
+  tweenDuration: 1
+  multiLingualData: {fileID: 11400000, guid: 77a49602da5eb1c46ab963f290333c15, type: 2}
 --- !u!65 &-4825629176670092870
 BoxCollider:
   m_ObjectHideFlags: 0
