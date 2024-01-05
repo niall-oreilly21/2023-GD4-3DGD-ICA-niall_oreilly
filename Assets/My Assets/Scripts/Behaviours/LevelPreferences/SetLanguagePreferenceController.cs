@@ -11,6 +11,7 @@ namespace My_Assets.Scripts.Behaviours.LevelPreferences
     public class SetLanguagePreferenceController : MonoBehaviour
     {
         #region Fields
+        
         [SerializeField]
         [Tooltip("Data structure holding level-specific preferences.")]
         private LevelPreferencesData  levelPreferencesData;
@@ -24,6 +25,7 @@ namespace My_Assets.Scripts.Behaviours.LevelPreferences
         private List<LanguageToggleData> toggles;
 
         private LanguageToggleData currentToggle;
+        
         #endregion
         
         private void Start()

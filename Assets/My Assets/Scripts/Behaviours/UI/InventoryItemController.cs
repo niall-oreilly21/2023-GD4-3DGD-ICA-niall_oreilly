@@ -9,6 +9,7 @@ namespace My_Assets.Scripts.Behaviours.UI
     public class InventoryItemController : MonoBehaviour
     {
         #region Fields
+        
         [SerializeField]
         [Tooltip("Event triggered when removing this item from the inventory.")]
         private MultiLanguageGameEvent removeItemFromInventory;

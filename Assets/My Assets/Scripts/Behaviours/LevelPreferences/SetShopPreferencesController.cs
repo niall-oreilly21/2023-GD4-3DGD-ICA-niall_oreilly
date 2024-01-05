@@ -10,6 +10,7 @@ namespace My_Assets.Scripts.Behaviours.LevelPreferences
     public class SetShopPreferencesController : MonoBehaviour
     {
         #region Fields
+        
         [SerializeField]
         [Tooltip("Data structure holding level-specific preferences.")]
         private LevelPreferencesData  levelPreferencesData;
@@ -21,6 +22,7 @@ namespace My_Assets.Scripts.Behaviours.LevelPreferences
         [SerializeField]
         [Tooltip("Slider for setting the count of words to test.")]
         private Slider countOfWordsToTest;
+        
         #endregion
 
         public void SetCountOfWordsToLearnPreference()

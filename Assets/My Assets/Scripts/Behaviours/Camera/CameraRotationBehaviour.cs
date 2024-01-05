@@ -1,25 +1,36 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
-namespace My_Assets.Scripts.Behaviours
+namespace My_Assets.Scripts.Behaviours.Camera
 {
+    /// <summary>
+    /// Unity MonoBehaviour to rotate a camera using a coroutine.
+    /// </summary>
     public class CameraRotationBehaviour : MonoBehaviour
     {
-        [SerializeField] 
+        #region Fields
+
+        [SerializeField]
+        [Tooltip("The total time taken to complete the rotation.")]
         [Range(0f, 5f)]
         private float totalRotationTime;
-        
+
         [SerializeField]
+        [Tooltip("The rotation applied to the camera.")]
         private Vector3 rotation;
-        
+
         private bool isRotating;
+
+        #endregion
 
         private void Start()
         {
             isRotating = false;
         }
-        
+
+        /// <summary>
+        /// Initiates the camera rotation if it is not already rotating.
+        /// </summary>
         public void RotateCamera()
         {
             if (!isRotating)
@@ -32,7 +43,6 @@ namespace My_Assets.Scripts.Behaviours
         {
             isRotating = true;
 
-            Quaternion startRotation = transform.rotation;
             Vector3 startEulerAngles = transform.eulerAngles;
             Vector3 targetEulerAngles = startEulerAngles + rotation;
 
@@ -49,5 +59,6 @@ namespace My_Assets.Scripts.Behaviours
 
             isRotating = false;
         }
+
     }
 }

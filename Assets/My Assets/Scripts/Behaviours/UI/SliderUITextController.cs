@@ -10,6 +10,7 @@ namespace My_Assets.Scripts.Behaviours
     public class SliderUITextController : MonoBehaviour
     {
         #region Fields
+        
         [SerializeField]
         [Tooltip("Slider whose value will be displayed in the TextMeshProUGUI component.")]
         private Slider slider;
@@ -17,6 +18,7 @@ namespace My_Assets.Scripts.Behaviours
         [SerializeField]
         [Tooltip("TextMeshProUGUI component to display the slider's value.")]
         private TextMeshProUGUI text;
+        
         #endregion
 
         /// <summary>

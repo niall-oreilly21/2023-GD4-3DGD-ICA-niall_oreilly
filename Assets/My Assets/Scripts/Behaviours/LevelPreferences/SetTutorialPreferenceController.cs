@@ -10,11 +10,13 @@ namespace My_Assets.Scripts.Behaviours.LevelPreferences
     public class SetTutorialPreferenceController : MonoBehaviour
     {
         #region Fields
+        
         [SerializeField] 
         [Tooltip("Data structure holding level-specific preferences.")]
         private LevelPreferencesData levelPreferencesData;
 
         private Toggle toggle;
+        
         #endregion
 
 

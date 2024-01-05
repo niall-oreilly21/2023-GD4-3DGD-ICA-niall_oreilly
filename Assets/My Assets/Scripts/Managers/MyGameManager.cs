@@ -3,25 +3,31 @@ using System.Linq;
 using My_Assets.Scripts.ScriptableObjects;
 using UnityEngine;
 using GD;
-using My_Assets.Scripts.Enums;
 using TMPro;
 
 namespace My_Assets.Scripts.Managers
 {
     public class MyGameManager : Singleton<MyGameManager>
     {
+        #region Fields
+
         [SerializeField]
+        [Tooltip("Reference to the player's player's level preference.")]
         private LevelPreferencesData levelPreferencesData;
 
         [SerializeField] 
+        [Tooltip("Reference to the player's inventory.")]
         private Inventory inventory;
 
         [SerializeField] 
+        [Tooltip("The button used to exit the tutorial or play the game in the end menu.")]
         private TextMeshProUGUI endMenuTutorialButton;
         
         private List<MultiLingualData> multiLingualDataList;
         private bool isPaused;
 
+        #endregion
+        
         private void Start()
         {
             multiLingualDataList = new List<MultiLingualData>();
@@ -54,6 +60,9 @@ namespace My_Assets.Scripts.Managers
             isPaused = true;
         }
 
+        /// <summary>
+        /// Loads the main menu or the game scene based on tutorial selection.
+        /// </summary>
         public void LoadMainMenu()
         {
             SoundManager.Instance.SwitchMenuAudio();
@@ -84,6 +93,9 @@ namespace My_Assets.Scripts.Managers
             MyUIManager.Instance.SetTutorialTextState(levelPreferencesData.TutorialSelected);
         }
 
+        /// <summary>
+        /// Sets up the MultiLingualData list by shuffling and selecting words to be tested.
+        /// </summary>
         private void SetUpMultiLingualDataList()
         {
             FisherYatesAlgorithm.ShuffleList(multiLingualDataList);
@@ -97,14 +109,7 @@ namespace My_Assets.Scripts.Managers
 
         private void Update()
         {
-            CheckGameOver();
-
             Time.timeScale = isPaused ? 0 : 1;
-        }
-
-        private void CheckGameOver()
-        {
-            
         }
     }
 }

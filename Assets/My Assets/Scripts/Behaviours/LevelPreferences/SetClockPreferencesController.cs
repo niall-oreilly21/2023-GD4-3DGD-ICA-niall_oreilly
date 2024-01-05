@@ -1,3 +1,5 @@
+using My_Assets.Scripts.Behaviours.Player;
+using My_Assets.Scripts.Behaviours.Timer;
 using My_Assets.Scripts.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,10 +12,11 @@ namespace My_Assets.Scripts.Behaviours.LevelPreferences
     public class SetClockPreferencesController : MonoBehaviour
     {
         #region Fields
+        
         [SerializeField]
         [Tooltip("Data structure holding clock preferences.")]
         private ClockData clockData;
-
+        
         [SerializeField] 
         [Tooltip("Slider for selecting minutes.")]
         private Slider minutesSlider;
@@ -21,6 +24,7 @@ namespace My_Assets.Scripts.Behaviours.LevelPreferences
         [SerializeField] 
         [Tooltip("Slider for selecting seconds.")]
         private Slider secondsSlider;
+        
         #endregion
         
         public void SetMinutePreference()

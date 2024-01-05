@@ -9,6 +9,7 @@ namespace My_Assets.Scripts.Behaviours
     public class SliderUIMaxCountController : MonoBehaviour
     {
         #region Fields
+        
         [SerializeField]
         [Tooltip("Slider serving as the source of the maximum value.")]
         private Slider sourceSlider;
@@ -16,6 +17,7 @@ namespace My_Assets.Scripts.Behaviours
         [SerializeField]
         [Tooltip("Slider whose maximum value is synchronized with the source slider.")]
         private Slider targetSlider;
+        
         #endregion
         
         public void Update()

@@ -1,22 +1,19 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net.NetworkInformation;
 using GD;
-using My_Assets.Scripts;
-using My_Assets.Scripts.Managers;
+using My_Assets.Scripts.Behaviours.Item;
 using My_Assets.Scripts.ScriptableObjects;
 using My_Assets.Scripts.ScriptableObjects.Events;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
-using Cursor = UnityEngine.Cursor;
 
-namespace Third_Party_Assets.Scripts
+namespace My_Assets.Scripts.Managers
 {
+    /// <summary>
+    /// Manager for inspecting and interacting with items in the game.
+    /// Video ref: https://www.youtube.com/watch?v=Ya0VkoAjDmY&t=257s&ab_channel=LearnWithYas
+    /// </summary>
     public class InspectItemManager : MonoBehaviour
     {
+        #region Fields
+
         [SerializeField] private InspectItemData inspectItemData;
 
         [SerializeField]
@@ -27,28 +24,41 @@ namespace Third_Party_Assets.Scripts
         [Tooltip("The Canvas used for examination UI (alternative reference).")]
         private GameObject examineCanvas;
 
-        [SerializeField] 
-        private GameObject englishText;
-        
         [SerializeField]
+        [Tooltip("Reference to the GameObject representing English text.")]
+        private GameObject englishText;
+
+        [SerializeField]
+        [Tooltip("Data containing preferences for game levels.")]
         private LevelPreferencesData levelPreferencesData;
 
         [SerializeField]
+        [Tooltip("Game event triggered when an item is added to the inventory.")]
         private MultiLanguageGameEvent addToInventoryGameEvent;
 
-        [SerializeField] 
-        private BoolGameEvent togglePromptTextGameEvent;
-            
-        private ItemBehaviour currentInspectItemBehaviour;
-        
         [SerializeField]
+        [Tooltip("Game event triggered to toggle prompt text.")]
+        private BoolGameEvent togglePromptTextGameEvent;
+
+        private ItemBehaviour currentInspectItemBehaviour;
+
+        [SerializeField]
+        [Tooltip("Game event triggered to set tutorial text.")]
         private StringGameEvent setTutorialTextGameEvent;
+
+        #endregion
+
+        #region Methods
 
         private void Start()
         {
             inspectItemData.IsExamining = false;
         }
 
+        /// <summary>
+        /// Checks if an object is being examined and initiates the examination process.
+        /// </summary>
+        /// <param name="hitGameObject">The GameObject being examined.</param>
         public void CheckExamining(GameObject hitGameObject)
         {
             currentInspectItemBehaviour = hitGameObject.GetComponent<ItemBehaviour>();
@@ -63,45 +73,44 @@ namespace Third_Party_Assets.Scripts
                 inspectItemData.OriginalRotations[inspectItemData.ExaminedObject] = inspectItemData.ExaminedObject.rotation;
             }
         }
-        
-        void Update()
+
+        private void Update()
         {
-            //It then checks if the player is close to an interactable object using the CheckUserClose() method.
-            //If the player is close, it calls either Examine() or NonExamine() and enables or disables the canvas component accordingly.
-                if (inspectItemData.IsExamining)
+            // Checks if the player is examining an object and updates the UI accordingly.
+            if (inspectItemData.IsExamining)
+            {
+                Examine();
+                togglePromptTextGameEvent.Raise(false);
+                examineCanvas.SetActive(true);
+
+                if (!levelPreferencesData.TutorialSelected)
                 {
-                    Examine(); 
-                    //StartExamination();
-                    togglePromptTextGameEvent.Raise(false);
-                    examineCanvas.SetActive(true);
-
-                    if (!levelPreferencesData.TutorialSelected)
-                    {
-                        englishText.SetActive(false);
-                    }
-
-                    if (levelPreferencesData.TutorialSelected)
-                    {
-                        setTutorialTextGameEvent.Raise(currentInspectItemBehaviour.MultiLingualData.EnglishLanguageData.LanguageText + ":" + "\n" +
-                                                       currentInspectItemBehaviour.MultiLingualData.CurrentLanguageToLearnData.LanguageText);
-                    }
-                    
+                    englishText.SetActive(false);
                 }
-                else
+
+                if (levelPreferencesData.TutorialSelected)
                 {
-                    NonExamine();
-
-                    if (levelPreferencesData.TutorialSelected)
-                    {
-                        setTutorialTextGameEvent.Raise("");
-                    }
-
-                    //StopExamination();
-                    examineCanvas.SetActive(false);
+                    setTutorialTextGameEvent.Raise(currentInspectItemBehaviour.MultiLingualData.EnglishLanguageData.LanguageText + ":" + "\n" +
+                                                   currentInspectItemBehaviour.MultiLingualData.CurrentLanguageToLearnData.LanguageText);
                 }
+            }
+            else
+            {
+                NonExamine();
+
+                if (levelPreferencesData.TutorialSelected)
+                {
+                    setTutorialTextGameEvent.Raise("");
+                }
+
+                examineCanvas.SetActive(false);
+            }
         }
 
-        void Examine()
+        /// <summary>
+        /// Handles the examination behaviour, including object movement and rotation.
+        /// </summary>
+        private void Examine()
         {
             if (inspectItemData.ExaminedObject != null)
             {
@@ -115,9 +124,10 @@ namespace Third_Party_Assets.Scripts
             }
         }
 
-        //This method is called when the player is not examining an object.
-        //It resets the position and rotation of the examined object to its original values stored in the dictionaries.
-        void NonExamine()
+        /// <summary>
+        /// Handles behavior when not examining, including resetting the object's position and rotation.
+        /// </summary>
+        private void NonExamine()
         {
             if (inspectItemData.ExaminedObject != null)
             {
@@ -130,11 +140,12 @@ namespace Third_Party_Assets.Scripts
                 {
                     inspectItemData.ExaminedObject.rotation = Quaternion.Slerp(inspectItemData.ExaminedObject.rotation, rotation, 0.2f);
                 }
-                //Debug.Log("HERE");
-                //inspectItemData.ExaminedObject.GetComponent<ItemBehaviour>().StartScaleTween();
             }
         }
 
+        /// <summary>
+        /// Checks for player input during examination and triggers corresponding actions.
+        /// </summary>
         private void CheckPlayerInput()
         {
             if (levelPreferencesData.TutorialSelected)
@@ -149,14 +160,15 @@ namespace Third_Party_Assets.Scripts
             {
                 SoundManager.Instance.PlayOneShotSound(currentInspectItemBehaviour.MultiLingualData.CurrentLanguageToLearnData.TextToSpeech);
             }
-            
+
             else if (Input.GetKeyDown(KeyCode.A))
             {
                 currentInspectItemBehaviour.DeleteItem();
                 addToInventoryGameEvent.Raise(currentInspectItemBehaviour.MultiLingualData);
                 inspectItemData.ToggleExamination();
             }
-            
         }
+
+        #endregion
     }
 }

@@ -1,20 +1,30 @@
 using System;
 using My_Assets.Scripts.Behaviours;
+using My_Assets.Scripts.Behaviours.Singleton;
 using My_Assets.Scripts.Enums;
 using UnityEngine;
 
 namespace My_Assets.Scripts.Managers
 {
+    /// <summary>
+    /// Manages audio playback in the game, including background music and one-shot sounds.
+    /// </summary>
     public class SoundManager : DoNotDestroyOnLoadSingleton<SoundManager>
     {
+        #region Fields
+
         [SerializeField] 
+        [Tooltip("The audio clip for the menu.")]
         private AudioClip menuAudio;
         
         [SerializeField] 
+        [Tooltip("The audio clip for the game's backtrack.")]
         private AudioClip gameBacktrackAudio;
         
         private AudioSource[] audioSources;
         private bool isMenuAudioPlaying;
+
+        #endregion
 
         private void Start()
         {
@@ -40,12 +50,18 @@ namespace My_Assets.Scripts.Managers
             isInitialised.Value = false;
         }
 
-
+        /// <summary>
+        /// Plays a one-shot sound using the specified AudioClip.
+        /// </summary>
+        /// <param name="audioClip">The AudioClip to play.</param>
         public void PlayOneShotSound(AudioClip audioClip)
         {
             audioSources[(int)AudioSourceType.GameEvent].PlayOneShot(audioClip);
         }
 
+        /// <summary>
+        /// Switches between menu audio and game backtrack audio for the background music.
+        /// </summary>
         public void SwitchMenuAudio()
         {
             isMenuAudioPlaying = !isMenuAudioPlaying;
@@ -59,11 +75,6 @@ namespace My_Assets.Scripts.Managers
                 audioSources[(int)AudioSourceType.Background].clip = gameBacktrackAudio;
             }
             audioSources[(int)AudioSourceType.Background].Play();
-        }
-
-        private void StopBackgroundAudio()
-        {
-            audioSources[(int)AudioSourceType.Background].Stop();
         }
     }
 }

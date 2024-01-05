@@ -1,6 +1,7 @@
 using GD;
 using GD.Selection;
 using My_Assets.Scripts.Behaviours;
+using My_Assets.Scripts.Behaviours.Item;
 using My_Assets.Scripts.ScriptableObjects.Events;
 using UnityEngine;
 using UnityEngine.Serialization;
