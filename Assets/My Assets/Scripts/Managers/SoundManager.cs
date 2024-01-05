@@ -15,6 +15,7 @@ namespace My_Assets.Scripts.Managers
         
         private AudioSource[] audioSources;
         private bool isMenuAudioPlaying;
+        private bool setIsInitialised = true;
 
         private void Start()
         {
@@ -25,15 +26,24 @@ namespace My_Assets.Scripts.Managers
                 Debug.LogError("Two AudioSource components not found on the same GameObject as SoundManager.");
                 return;
             }
+
+            if (setIsInitialised)
+            {
+                isInitialised.Value = false;
+            }
+
+            setIsInitialised = false;
+
             
             if (isInitialised.Value)
             {
                 return;
             }
-            
+
             isInitialised.Value = true;
             SwitchMenuAudio();
         }
+
 
         public void PlayOneShotSound(AudioClip audioClip)
         {

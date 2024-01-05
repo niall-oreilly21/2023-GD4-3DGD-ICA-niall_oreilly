@@ -14,14 +14,9 @@ namespace My_Assets.Scripts.Managers
         [SerializeField] 
         private ItemPrefabDictionary itemPrefabDictionary;
 
-        private void Start()
-        {
-            levelPreferencesData.CountOfWordsToLearn = 15;
-            levelPreferencesData.CountOfWordsToTest = 15;
-        }
-
         public void LoadPrefabs(List<MultiLingualData> multiLingualDataList)
         {
+            Debug.Log(levelPreferencesData.CountOfWordsToLearn);
             itemPrefabDictionary.LoadPrefabs(levelPreferencesData.CountOfWordsToLearn);
             
             // Instantiate all prefabs in the dictionary

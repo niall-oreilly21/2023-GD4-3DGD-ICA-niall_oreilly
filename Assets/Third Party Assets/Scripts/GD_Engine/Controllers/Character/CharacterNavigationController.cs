@@ -38,7 +38,7 @@ namespace GD.Controllers
         private RaycastHit hitInfo;
         private bool isSelected;
 
-        private void Start()
+        protected void Start()
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
             rayProvider = GetComponent<IRayProvider>();
@@ -163,7 +163,7 @@ namespace GD.Controllers
             currentlySelectedGameObject.Value = gameObject;
         }
 
-        private void Update()
+        protected void Update()
         {
             if (Input.GetMouseButtonDown(1) && isSelected)
             {
