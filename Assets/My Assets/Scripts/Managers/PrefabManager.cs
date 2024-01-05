@@ -16,7 +16,6 @@ namespace My_Assets.Scripts.Managers
 
         public void LoadPrefabs(List<MultiLingualData> multiLingualDataList)
         {
-            Debug.Log(levelPreferencesData.CountOfWordsToLearn);
             itemPrefabDictionary.LoadPrefabs(levelPreferencesData.CountOfWordsToLearn);
             
             // Instantiate all prefabs in the dictionary

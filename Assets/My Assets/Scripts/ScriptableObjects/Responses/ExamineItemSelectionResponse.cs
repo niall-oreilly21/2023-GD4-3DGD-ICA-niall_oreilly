@@ -46,6 +46,10 @@ namespace My_Assets.Scripts.ScriptableObjects
                     
                     if (Input.GetKeyDown(KeyCode.E))
                     {
+                        if (inspectItemData.IsExamining)
+                        {
+                            selection.gameObject.GetComponent<ItemBehaviour>().StartScaleTween();
+                        }
                         examineObjectGameEvent.Raise(selection.gameObject);
                     }
                 }

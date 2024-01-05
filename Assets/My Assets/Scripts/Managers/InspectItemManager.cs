@@ -54,6 +54,7 @@ namespace Third_Party_Assets.Scripts
             // Store the currently examined object and its original position and rotation
             if (inspectItemData.IsExamining)
             {
+                currentInspectItemBehaviour.StopScaleTween();
                 inspectItemData.ExaminedObject = hitGameObject.transform;
                 inspectItemData.OriginalPositions[inspectItemData.ExaminedObject] = inspectItemData.ExaminedObject.position;
                 inspectItemData.OriginalRotations[inspectItemData.ExaminedObject] = inspectItemData.ExaminedObject.rotation;
@@ -100,7 +101,6 @@ namespace Third_Party_Assets.Scripts
 
         //This method is called when the player is not examining an object.
         //It resets the position and rotation of the examined object to its original values stored in the dictionaries.
-
         void NonExamine()
         {
             if (inspectItemData.ExaminedObject != null)
@@ -114,6 +114,8 @@ namespace Third_Party_Assets.Scripts
                 {
                     inspectItemData.ExaminedObject.rotation = Quaternion.Slerp(inspectItemData.ExaminedObject.rotation, rotation, 0.2f);
                 }
+                //Debug.Log("HERE");
+                //inspectItemData.ExaminedObject.GetComponent<ItemBehaviour>().StartScaleTween();
             }
         }
 
@@ -138,6 +140,7 @@ namespace Third_Party_Assets.Scripts
                 addToInventoryGameEvent.Raise(currentInspectItemBehaviour.MultiLingualData);
                 inspectItemData.ToggleExamination();
             }
+            
         }
     }
 }

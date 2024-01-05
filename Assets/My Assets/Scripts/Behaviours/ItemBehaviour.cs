@@ -10,44 +10,80 @@ using UnityEngine.Serialization;
 namespace My_Assets.Scripts
 {
     
-    public class ItemBehaviour : MonoBehaviour
+   using UnityEngine;
+using DG.Tweening;
+
+public class ItemBehaviour : MonoBehaviour
+{
+    [SerializeField] 
+    private float startScale = 1f;
+    
+    [SerializeField] 
+    private float targetScale = 0.5f;
+    
+    [SerializeField] 
+    private float tweenDuration = 1f;
+
+    [SerializeField]
+    private MultiLingualData multiLingualData;
+
+    private Material material;
+    private Sequence scaleTweenSequence;
+    private BoxCollider currentBoxCollider;
+    
+
+    public MultiLingualData MultiLingualData => multiLingualData;
+
+    private void Start()
     {
-        [SerializeField] 
-        private float startScale = 1f;
-        
-        [SerializeField] 
-        private float targetScale = 0.5f;
-        
-        [SerializeField] 
-        private float tweenDuration = 1f;
-        
-        [SerializeField]
-        private MultiLingualData multiLingualData;
-
-        public MultiLingualData MultiLingualData => multiLingualData;
-
-        private void Start()
+        // Assuming your object has a renderer and the material you want to modify is the first material in the list
+        Renderer renderer = GetComponent<Renderer>();
+        if (renderer != null && renderer.materials.Length > 0)
         {
-            startScale = transform.localScale.x;
-            targetScale = startScale * 2;
-            // Call the method to start the tween
-            StartScaleTween();
+            material = renderer.materials[0];
         }
 
-        private void StartScaleTween()
-        {
-            // Reset the scale to the starting scale (optional)
-            transform.localScale = new Vector3(startScale, startScale, startScale);
+        startScale = transform.localScale.x;
+        targetScale = startScale * 2;
 
-            // Use DOTween to tween the object's scale
-            transform.DOScale(targetScale, tweenDuration)
-                .SetEase(Ease.InOutQuad)  // You can change the easing function
-                .SetLoops(-1, LoopType.Yoyo); // Infinite loop (grows and shrinks continuously)
-        }
+        currentBoxCollider = GetComponent<BoxCollider>();
 
-        public void DeleteItem()
+        // Call the method to start the tween
+        StartScaleTween();
+    }
+
+    public void StartScaleTween()
+    {
+        currentBoxCollider.size = new Vector3(1, 1, 1);
+        // Reset the scale to the starting scale (optional)
+        transform.localScale = new Vector3(startScale, startScale, startScale);
+
+        // Use DOTween to tween the object's scale
+        scaleTweenSequence = DOTween.Sequence();
+        scaleTweenSequence.Append(transform.DOScale(targetScale, tweenDuration * 0.5f).SetEase(Ease.OutQuad));
+        scaleTweenSequence.Join(material.DOColor(Color.yellow * 2, "_EmissionColor", tweenDuration * 0.5f));
+
+        scaleTweenSequence.Append(transform.DOScale(startScale, tweenDuration * 0.5f).SetEase(Ease.InQuad));
+        scaleTweenSequence.Join(material.DOColor(Color.black, "_EmissionColor", tweenDuration * 0.5f));
+
+        // Infinite loop (grows and shrinks continuously)
+        scaleTweenSequence.SetLoops(-1);
+    }
+
+    public void StopScaleTween()
+    {
+        currentBoxCollider.size = new Vector3(0.4f, 0.4f, 0.4f);
+        if (scaleTweenSequence != null && scaleTweenSequence.IsActive())
         {
-            Destroy(gameObject);
+            scaleTweenSequence.Kill();
+            material.DOColor(Color.black, "_EmissionColor", 0.1f);
         }
     }
+
+    public void DeleteItem()
+    {
+        Destroy(gameObject);
+    }
+}
+
 }
