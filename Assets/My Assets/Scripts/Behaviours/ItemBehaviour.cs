@@ -1,5 +1,6 @@
 using System;
 using GD;
+using My_Assets.Scripts.Behaviours;
 using My_Assets.Scripts.ScriptableObjects;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -14,6 +15,12 @@ namespace My_Assets.Scripts
         private MultiLingualData multiLingualData;
 
         public MultiLingualData MultiLingualData => multiLingualData;
+
+        private void Start()
+        {
+            // gameObject.AddComponent<GlowEffect>();
+            // gameObject.GetComponent<GlowEffect>().StartGlow();
+        }
 
         public void DeleteItem()
         {

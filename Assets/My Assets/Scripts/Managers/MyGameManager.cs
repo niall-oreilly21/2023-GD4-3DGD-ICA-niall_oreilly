@@ -3,6 +3,7 @@ using System.Linq;
 using My_Assets.Scripts.ScriptableObjects;
 using UnityEngine;
 using GD;
+using My_Assets.Scripts.Enums;
 
 namespace My_Assets.Scripts.Managers
 {
@@ -43,8 +44,7 @@ namespace My_Assets.Scripts.Managers
 
         public void EndLevel()
         {
-            //MyUIManager.Instance.DisplayInventoryEndCart(multiLingualDataList.Except(inventory.Contents.Values).ToList(), levelPreferencesData.CountOfWordsToLearn);
-            MyUIManager.Instance.UnHideEndScreen();
+            MyUIManager.Instance.DisplayEndMenu(multiLingualDataList.Except(inventory.Contents.Values).ToList(), levelPreferencesData.CountOfWordsToLearn);
             isPaused = true;
         }
 

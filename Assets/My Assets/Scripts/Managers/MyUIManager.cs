@@ -1,12 +1,14 @@
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using GD;
-using GD.Examples;
+using My_Assets.Scripts.Behaviours.UI;
+using My_Assets.Scripts.Enums;
 using My_Assets.Scripts.ScriptableObjects;
 using TMPro;
+using UnityEditor.Experimental;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UIElements;
+using UnityEngine.PlayerLoop;
+using UnityEngine.UI;
 
 namespace My_Assets.Scripts.Managers
 {
@@ -20,18 +22,15 @@ namespace My_Assets.Scripts.Managers
         
         [SerializeField]
         private UIComponent cartUIComponent;
+        
+        [SerializeField]
+        private MultiUIComponent endMenuInventoryUIComponent;
 
         [SerializeField] 
         private Inventory inventory;
         
         [SerializeField] 
         private GameObject inventoryIsFull;
-        
-        [SerializeField] 
-        private GameObject shoppingListUI;
-
-        [SerializeField] 
-        private GameObject endMenuUI;
 
         [SerializeField] 
         private GameObject tutorialText;
@@ -42,7 +41,23 @@ namespace My_Assets.Scripts.Managers
         [SerializeField] 
         private LanguageDictionary languageDictionary;
 
+        [SerializeField] 
+        private Sprite tickIcon;
+        
+        [SerializeField] 
+        private Sprite xIcon;
+
+        [SerializeField] 
+        private GameObject gameCanvas;
+        
+        [SerializeField] 
+        private GameObject endMenuCanvas;
+
+        [SerializeField] 
+        private TextMeshProUGUI endScoreText;
+
         private string currentLanguageToLearn;
+        
         
         public void DisplayShoppingList(List<string> itemsInShoppingList)
         {
@@ -63,18 +78,58 @@ namespace My_Assets.Scripts.Managers
             }
             foreach (MultiLingualData item in inventory.Contents.Values)
             {
-                GameObject obj = Instantiate(inventoryUIComponent.UiItem, inventoryUIComponent.ItemContent);
-                obj.GetComponent<InventoryItemController>().MultiLingualData = item;
+                var newItem = Instantiate(inventoryUIComponent.UiItem, inventoryUIComponent.ItemContent);
+                newItem.GetComponent<InventoryItemController>().MultiLingualData = item;
+                newItem.transform.Find("Image").GetComponent<Image>().sprite = item.Icon;
             }
         }
 
-        public void DisplayInventoryEndCart(List<MultiLingualData> itemsNotInInventory, int totalWordsInShoppingList)
+        public void DisplayEndMenu(List<MultiLingualData> itemsNotInInventory, int totalWordsToLearn)
         {
-            foreach (MultiLingualData item in inventory.Contents.Values)
+            int endScore =DisplayInventoryEndCart();
+            DisplayItemsNotInInventory(itemsNotInInventory);
+            UpdateScoreText(endScore, totalWordsToLearn);
+            UnHideEndScreen();
+        }
+
+        private void UpdateScoreText(int endScore, int totalWordsToLearn)
+        {
+            endScoreText.SetText("Score " + "\n" + endScore + " / " + totalWordsToLearn);
+        }
+        private int DisplayInventoryEndCart()
+        {
+            var sortedItems = inventory.Contents.Values.OrderBy(item => item.EnglishLanguageData.LanguageText);
+            int endScore = 0;
+            
+            foreach (MultiLingualData item in sortedItems)
             {
-                DisplayEndMenuCartItem(item.EnglishLanguageData.LanguageText, item.CurrentLanguageToLearnData.LanguageText, item.WordIsToBeTested);
+                var newItem = DisplayEndMenuCartItem(item.EnglishLanguageData.LanguageText, item.CurrentLanguageToLearnData.LanguageText, endMenuInventoryUIComponent.ItemContent);
+                newItem.transform.Find("Icon").GetComponent<Image>().sprite = item.WordIsToBeTested ? tickIcon : xIcon;
+
+                if (item.WordIsToBeTested)
+                {
+                    endScore++;
+                }
             }
 
+            return endScore;
+        }
+
+        private void DisplayItemsNotInInventory(List<MultiLingualData> itemsNotInInventory)
+        {
+            var sortedItems = itemsNotInInventory.OrderBy(item => item.EnglishLanguageData.LanguageText);
+            
+            foreach (MultiLingualData item in sortedItems)
+            {
+                var newItem = DisplayEndMenuCartItem(item.EnglishLanguageData.LanguageText, item.CurrentLanguageToLearnData.LanguageText, endMenuInventoryUIComponent.ItemContentTwo);
+                newItem.transform.Find("Icon").GetComponent<Image>().sprite = item.Icon;
+            }
+        }
+        
+        private void UnHideEndScreen()
+        {
+            gameCanvas.SetActive(false);
+            endMenuCanvas.SetActive(true);
         }
 
         public void SetTutorialTextState(bool isActive)
@@ -91,19 +146,15 @@ namespace My_Assets.Scripts.Managers
         {
             promptText.SetText("To Play " + currentLanguageToLearn);
         }
-
-        public void UnHideEndScreen()
+        
+        private GameObject DisplayEndMenuCartItem(string englishText, string foreignText, Transform itemContent)
         {
-            shoppingListUI.SetActive(false);
-            endMenuUI.SetActive(true);
-        }
-        private void DisplayEndMenuCartItem(string englishText, string foreignText, bool isCorrect)
-        {
-            GameObject obj = Instantiate(cartUIComponent.UiItem, cartUIComponent.ItemContent);
+            var newItem = Instantiate(endMenuInventoryUIComponent.UiItem, itemContent);
+            
+            newItem.transform.Find("ForeignText").GetComponent<TextMeshProUGUI>().SetText(foreignText);
+            newItem.transform.Find("EnglishText").GetComponent<TextMeshProUGUI>().SetText(englishText);
 
-            obj.transform.Find("EnglishText").GetComponent<TextMeshProUGUI>().text = englishText;
-            obj.transform.Find("ForeignText").GetComponent<TextMeshProUGUI>().text = foreignText;
-           // obj.transform.Find("ItemState").GetComponent<Image>().sprite = null;
+            return newItem;
         }
         
         public void DisplayInventoryFull(bool isActive)

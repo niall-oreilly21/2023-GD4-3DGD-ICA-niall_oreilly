@@ -23,10 +23,6 @@ namespace Third_Party_Assets.Scripts
         private GameObject offset;
 
         [SerializeField]
-        [Tooltip("The Canvas used for examination UI.")]
-        private Canvas interactingCanvas;
-
-        [SerializeField]
         [Tooltip("The Canvas used for examination UI (alternative reference).")]
         private Canvas examineCanvas;
 
@@ -60,14 +56,12 @@ namespace Third_Party_Assets.Scripts
             //If the player is close, it calls either Examine() or NonExamine() and enables or disables the canvas component accordingly.
                 if (inspectItemData.IsExamining)
                 {
-                    interactingCanvas.enabled = false;
                     Examine(); 
                     //StartExamination();
                     examineCanvas.enabled = true;
                 }
                 else
                 {
-                    interactingCanvas.enabled = true;
                     NonExamine(); 
                     //StopExamination();
                     examineCanvas.enabled = false;
