@@ -100,6 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44f03d1f8bfc42598720fb535cb04b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startScale: 1
+  targetScale: 0.5
+  tweenDuration: 1
   multiLingualData: {fileID: 11400000, guid: e133a4323304f65469d909c68b56d0a1, type: 2}
 --- !u!65 &-4940528248493284497
 BoxCollider:
@@ -120,5 +123,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1297467, y: 0.10648483, z: 0.14561264}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: -0.0000000018626451, z: 0}

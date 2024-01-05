@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000011653470102, guid: 8d8015ded5f690247a600cc376e7b0e8, type: 3}
       propertyPath: m_Name
-      value: Cheese
+      value: CheeseWithBehaviour
       objectReference: {fileID: 0}
     - target: {fileID: 1000011653470102, guid: 8d8015ded5f690247a600cc376e7b0e8, type: 3}
       propertyPath: m_Layer
@@ -100,11 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44f03d1f8bfc42598720fb535cb04b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startScale: 1
+  targetScale: 0.5
+  tweenDuration: 1
   multiLingualData: {fileID: 11400000, guid: c8cc3b668a73f6443818d4ca4667035d, type: 2}
-  targetTransform:
-    Position: {x: 0, y: 0, z: 0}
-    Rotation: {x: 0, y: 0, z: 0}
-    Scale: {x: 0, y: 0, z: 0}
 --- !u!65 &-4833024021047288039
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -124,5 +123,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.108662106, y: 0.02677957, z: 0.102122895}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: -0.0000000023283064, z: -0.000000011175871}

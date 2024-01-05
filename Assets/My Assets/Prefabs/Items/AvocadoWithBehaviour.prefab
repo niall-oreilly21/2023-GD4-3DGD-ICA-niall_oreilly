@@ -100,11 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44f03d1f8bfc42598720fb535cb04b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startScale: 1
+  targetScale: 0.5
+  tweenDuration: 1
   multiLingualData: {fileID: 11400000, guid: b37ce90163fb67b4aa3606177dff46b0, type: 2}
-  targetTransform:
-    Position: {x: 1.52, y: 3.99, z: 16.43}
-    Rotation: {x: 0, y: 90, z: 0}
-    Scale: {x: 6, y: 6, z: 6}
 --- !u!65 &7124711188000708007
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -124,5 +123,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1569464, y: 0.046352707, z: 0.09013954}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.0000000027939677, z: 0}
