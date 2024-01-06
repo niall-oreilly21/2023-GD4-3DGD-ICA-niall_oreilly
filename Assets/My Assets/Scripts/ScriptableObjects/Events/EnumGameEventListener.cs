@@ -3,5 +3,11 @@ using GD;
 
 namespace My_Assets.Scripts
 {
-    public class EnumGameEventListener : BaseGameEventListener<Enum> { }
+    /// <summary>
+    /// Listener Behaviour for EnumGameEvent, inheriting from BaseGameEventListener<Enum>.
+    /// </summary>
+    public class EnumGameEventListener : BaseGameEventListener<Enum>
+    {
+        
+    }
 }

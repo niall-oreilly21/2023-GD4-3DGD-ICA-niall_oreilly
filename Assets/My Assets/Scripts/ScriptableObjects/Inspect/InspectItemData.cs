@@ -1,27 +1,42 @@
 using System.Collections.Generic;
 using GD;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace My_Assets.Scripts.ScriptableObjects
+namespace My_Assets.Scripts.ScriptableObjects.Inspect
 {
     [CreateAssetMenu(fileName = "GameLevel", menuName = "DkIT/Scriptable Objects/Game/InspectItem", order = 1)]
     public class InspectItemData : BaseObjectData
     {
+        #region Fields
+        
+        /// <summary>
+        /// State of whether the player is inspecting or not.
+        /// </summary>
         private bool isExamining = false;
         
-        //The last recorded mouse position during examination.
+        /// <summary>
+        /// The last recorded mouse position during examination.
+        /// </summary>
         private Vector3 lastMousePosition;
 
-        //The currently examined object during examination.
+        /// <summary>
+        /// The currently examined object during examination.
+        /// </summary>
         private Transform examinedObject;
 
-        //Original positions of interactable objects
+        /// <summary>
+        /// Original positions of interactable objects
+        /// </summary>
         private Dictionary<Transform, Vector3> originalPositions = new Dictionary<Transform, Vector3>();
 
-        //Original rotations of interactable objects
+        /// <summary>
+        /// Original rotations of interactable objects
+        /// </summary>
         private Dictionary<Transform, Quaternion> originalRotations = new Dictionary<Transform, Quaternion>();
-
+        
+        #endregion
+        
+        
         #region Properties
         public bool IsExamining
         {
@@ -41,6 +56,10 @@ namespace My_Assets.Scripts.ScriptableObjects
         public Dictionary<Transform, Vector3> OriginalPositions => originalPositions;
         public Dictionary<Transform, Quaternion> OriginalRotations => originalRotations;
         #endregion
+        
+        /// <summary>
+        /// Change the state of examining.
+        /// </summary>
         public void ToggleExamination()
         {
             isExamining = !isExamining;

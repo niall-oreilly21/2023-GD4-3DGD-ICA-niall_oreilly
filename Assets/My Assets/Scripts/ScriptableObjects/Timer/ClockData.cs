@@ -1,7 +1,7 @@
 using GD;
 using UnityEngine;
 
-namespace My_Assets.Scripts.Behaviours.Timer
+namespace My_Assets.Scripts.ScriptableObjects.Timer
 {
     /// <summary>
     /// Scriptable Object representing clock data for time-related game mechanics.

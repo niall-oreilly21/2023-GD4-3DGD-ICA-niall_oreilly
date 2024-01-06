@@ -1,4 +1,5 @@
 using My_Assets.Scripts.ScriptableObjects;
+using My_Assets.Scripts.ScriptableObjects.Languages;
 using UnityEngine;
 
 namespace My_Assets.Scripts.Behaviours.UI

@@ -2,6 +2,7 @@ using GD;
 using My_Assets.Scripts.Behaviours.Item;
 using My_Assets.Scripts.ScriptableObjects;
 using My_Assets.Scripts.ScriptableObjects.Events;
+using My_Assets.Scripts.ScriptableObjects.Inspect;
 using UnityEngine;
 
 namespace My_Assets.Scripts.Managers

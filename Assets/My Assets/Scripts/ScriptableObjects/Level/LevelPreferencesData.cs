@@ -4,6 +4,10 @@ using UnityEngine;
 
 namespace My_Assets.Scripts.ScriptableObjects
 {
+    /// <summary>
+    /// Scriptable object containing preferences for a game level, derived from BaseObjectData.
+    /// Controls settings such as language, count of words to learn, count of words to test, and tutorial selection.
+    /// </summary>
     [CreateAssetMenu(fileName = "LevelPreferences", menuName = "DkIT/Scriptable Objects/Game/LevelPreferences", order = 5)]
     public class LevelPreferencesData : BaseObjectData
     {
@@ -12,6 +16,9 @@ namespace My_Assets.Scripts.ScriptableObjects
         private int countOfWordsToTest = 1;
         private bool tutorialSelected = false;
 
+        /// <summary>
+        /// Resets the level preferences to default values.
+        /// </summary>
         public void ResetLevelPreferences()
         {
             language = LanguageType.Spanish;

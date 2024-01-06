@@ -1,4 +1,6 @@
 using My_Assets.Scripts.ScriptableObjects;
+using My_Assets.Scripts.ScriptableObjects.Inventory;
+using My_Assets.Scripts.ScriptableObjects.Languages;
 using UnityEngine;
 
 namespace My_Assets.Scripts.Managers

@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using GD;
 using My_Assets.Scripts.Behaviours.Item;
 using My_Assets.Scripts.ScriptableObjects;
+using My_Assets.Scripts.ScriptableObjects.Collections;
+using My_Assets.Scripts.ScriptableObjects.Languages;
 using UnityEngine;
 
 namespace My_Assets.Scripts.Managers

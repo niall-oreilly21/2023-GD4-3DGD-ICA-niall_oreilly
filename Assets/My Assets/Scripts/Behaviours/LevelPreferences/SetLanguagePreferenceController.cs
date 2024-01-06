@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using My_Assets.Scripts.ScriptableObjects;
+using My_Assets.Scripts.ScriptableObjects.Collections;
 using UnityEngine;
 
 namespace My_Assets.Scripts.Behaviours.LevelPreferences

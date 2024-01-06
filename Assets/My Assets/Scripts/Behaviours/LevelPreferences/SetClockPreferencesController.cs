@@ -1,6 +1,7 @@
 using My_Assets.Scripts.Behaviours.Player;
 using My_Assets.Scripts.Behaviours.Timer;
 using My_Assets.Scripts.ScriptableObjects;
+using My_Assets.Scripts.ScriptableObjects.Timer;
 using UnityEngine;
 using UnityEngine.UI;
 

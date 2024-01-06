@@ -3,6 +3,8 @@ using System.Linq;
 using My_Assets.Scripts.ScriptableObjects;
 using UnityEngine;
 using GD;
+using My_Assets.Scripts.ScriptableObjects.Inventory;
+using My_Assets.Scripts.ScriptableObjects.Languages;
 using TMPro;
 
 namespace My_Assets.Scripts.Managers

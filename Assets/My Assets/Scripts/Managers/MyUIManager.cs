@@ -5,6 +5,9 @@ using My_Assets.Scripts.Behaviours.UI;
 using My_Assets.Scripts.Components;
 using My_Assets.Scripts.Enums;
 using My_Assets.Scripts.ScriptableObjects;
+using My_Assets.Scripts.ScriptableObjects.Collections;
+using My_Assets.Scripts.ScriptableObjects.Inventory;
+using My_Assets.Scripts.ScriptableObjects.Languages;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -127,7 +130,7 @@ namespace My_Assets.Scripts.Managers
         /// <param name="totalWordsToLearn">Total words to learn in the level.</param>
         private void UpdateScoreText(int endScore, int totalWordsToLearn)
         {
-            endScoreText.SetText("Score " + "\n" + endScore + " / " + totalWordsToLearn);
+            endScoreText.SetText("Score " + "\n" + inventory.GetCountOfCorrectWordsOnShoppingList() + " / " + totalWordsToLearn);
         }
         
         /// <summary>
