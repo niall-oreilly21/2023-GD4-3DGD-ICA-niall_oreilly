@@ -117,33 +117,42 @@ namespace My_Assets.Scripts.Managers
         /// <param name="totalWordsToLearn">Total words to learn in the level.</param>
         public void DisplayEndMenu(List<MultiLingualData> itemsNotInInventory, int totalWordsToLearn)
         {
-            DisplayInventoryEndCart();
+            int endScore = DisplayInventoryEndCart();
             DisplayItemsNotInInventory(itemsNotInInventory);
-            UpdateScoreText(totalWordsToLearn);
+            UpdateScoreText(endScore, totalWordsToLearn);
             UnHideEndScreen();
         }
 
         /// <summary>
         /// Updates the score text in the end menu.
         /// </summary>
+        /// <param name="endScore">The score achieved.</param>
         /// <param name="totalWordsToLearn">Total words to learn in the level.</param>
-        private void UpdateScoreText(int totalWordsToLearn)
+        private void UpdateScoreText(int endScore, int totalWordsToLearn)
         {
             endScoreText.SetText("Score " + "\n" + inventory.GetCountOfCorrectWordsOnShoppingList() + " / " + totalWordsToLearn);
         }
         
         /// <summary>
-        /// Displays the inventory items in the end menu cart.
+        /// Displays the inventory items in the end menu cart and calculates the end score.
         /// </summary>
-        private void DisplayInventoryEndCart()
+        /// <returns>The end score achieved.</returns>
+        private int DisplayInventoryEndCart()
         {
             var sortedItems = inventory.Contents.Values.OrderBy(item => item.EnglishLanguageData.LanguageText);
-
+            int endScore = 0;
+            
             foreach (MultiLingualData item in sortedItems)
             {
                 var newItem = DisplayEndMenuCartItem(item.EnglishLanguageData.LanguageText, item.CurrentLanguageToLearnData.LanguageText, endMenuInventoryUIComponent.ItemContent);
                 newItem.transform.Find("Icon").GetComponent<Image>().sprite = item.WordIsToBeTested ? tickIcon : xIcon;
+
+                if (item.WordIsToBeTested)
+                {
+                    endScore++;
+                }
             }
+            return endScore;
         }
 
         /// <summary>

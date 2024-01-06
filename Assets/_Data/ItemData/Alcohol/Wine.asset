@@ -22,10 +22,10 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: 09cb60bc-fd94-466c-871b-007ea445d199
-  LastUpdated: 06/01/24 00:27:17
+  LastUpdated: 04/01/24 03:56:42
   LastUpdatedBy: 
   Notes: 
-  Description: Wine Multi Lingual Object.
+  Description: 
   Type: 8
   icon: {fileID: 21300058, guid: 37607ec1aab56e349af84a980f685a4b, type: 3}
   englishLanguageData:

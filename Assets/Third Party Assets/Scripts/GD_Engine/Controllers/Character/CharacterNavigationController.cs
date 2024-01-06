@@ -158,7 +158,7 @@ namespace GD.Controllers
         {
             player.Check(rayProvider.CreateRay());
             
-            if (Input.GetMouseButtonDown(0) && player.GetSelection() != null)
+            if (player.GetSelection() != null && Input.GetMouseButtonDown(0))
             {
                 if (currentlySelectedGameObject.Value != null
                     && currentlySelectedGameObject.Value != gameObject)

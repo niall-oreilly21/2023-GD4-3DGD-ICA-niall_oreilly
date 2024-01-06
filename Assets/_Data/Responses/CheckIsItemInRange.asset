@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: c45ce7e3-c992-447d-9d17-95f9f7c7521a
-  LastUpdated: 06/01/24 00:31:10
+  LastUpdated: 30/12/23 22:38:10
   LastUpdatedBy: 
   Notes: 
-  Description: Check if a item is near a character then call this event.
+  Description: 
