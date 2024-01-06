@@ -22,10 +22,10 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: 09cb60bc-fd94-466c-871b-007ea445d199
-  LastUpdated: 05/01/24 20:59:14
+  LastUpdated: 06/01/24 00:28:45
   LastUpdatedBy: 
   Notes: 
-  Description: 
+  Description: Shampoo Multi Lingual Object.
   Type: 15
   icon: {fileID: 21300000, guid: 47530b4539001bf42ba2e0f374d43741, type: 3}
   englishLanguageData:

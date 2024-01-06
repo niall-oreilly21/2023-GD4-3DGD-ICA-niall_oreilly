@@ -22,10 +22,10 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   UniqueId: 0078a021-5027-451d-8b1a-db721de0efd3
-  LastUpdated: 30/12/23 22:33:19
+  LastUpdated: 06/01/24 00:33:33
   LastUpdatedBy: 
   Notes: 
-  Description: 
+  Description: Event for checking if colliding with selected item.
   value: 0
   OnSet:
     m_PersistentCalls:
